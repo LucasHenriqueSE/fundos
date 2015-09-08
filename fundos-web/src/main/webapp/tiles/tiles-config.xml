@@ -1,0 +1,12 @@
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="index" template="/pages/index.jsp" />
+	<definition name="nova-cota" template="/pages/cotas/nova-cota.jsp" />
+	<definition name="novo-fundo" template="/pages/fundos/novo-fundo.jsp" />
+	<definition name="novo-tipo-fundo" template="/pages/tipo-fundos/novo-tipo-fundo.jsp" />
+	<definition name="novo-movimento-fundo" template="/pages/movimento-fundos/novo-movimento-fundo.jsp" />
+	<definition name="novo-tipo-movimento-fundos" template="/pages/tipo-movimento-fundos/novo-tipo-movimento-fundos.jsp" />
+</tiles-definitions>
