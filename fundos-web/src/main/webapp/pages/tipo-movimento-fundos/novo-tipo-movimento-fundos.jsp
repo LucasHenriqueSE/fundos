@@ -7,7 +7,7 @@
 <title>Cadastro Tipo de Movimento Fundos</title>
 </head>
 <body>
-	<form action="/movimentos/tipo-movimento/salvar" method="POST">
+	<form action="/fundos/movimentos/tipo-movimento/salvar" method="POST">
 		Nome: <input name="nomeTipoMovimentoFundo" value="" />
 		
 		<input type="submit" value="Cadastrar" />

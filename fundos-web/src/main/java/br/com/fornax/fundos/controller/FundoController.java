@@ -10,6 +10,19 @@ import br.com.fornax.fundos.model.TipoDeFundo;
 @Controller
 public class FundoController {
 
+	@RequestMapping("cadastrar")
+	public String cadastrarNovoFundo() {
+		return "novo-fundo";
+	}
+	
+	@RequestMapping(value = "salvar", method = RequestMethod.POST)
+	public String salvarNovoFundo(Fundo novo) {
+		System.out.println(novo.getNome() + "\n" + novo.getTipoFundo() + "\n"
+				+ novo.getListaCotas() + "\n" + novo.getListaMovimentos());
+		
+		return "novo-fundo";
+	}
+
 	@RequestMapping("tipo-de-fundo/cadastrar")
 	public String cadastrarTipoDeFundo() {
 		return "novo-tipo-fundo";
@@ -20,18 +33,5 @@ public class FundoController {
 		System.out.println(novo.getNomeTipoFundo());
 
 		return "novo-tipo-fundo";
-	}
-
-	@RequestMapping("cadastrar")
-	public String cadastrarNovoFundo() {
-		return "novo-fundo";
-	}
-
-	@RequestMapping(value = "salvar", method = RequestMethod.POST)
-	public String salvarNovoFundo(Fundo novo) {
-		System.out.println(novo.getNome() + "\n" + novo.getTipoFundo() + "\n"
-				+ novo.getListaCotas() + "\n" + novo.getListaMovimentos());
-
-		return "novo-fundo";
 	}
 }

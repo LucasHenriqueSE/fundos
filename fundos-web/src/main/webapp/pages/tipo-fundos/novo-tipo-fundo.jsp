@@ -7,7 +7,7 @@
 <title>Cadastrar Tipo de Fundo</title>
 </head>
 <body>
-	<form action="/tipo-de-fundo/salvar" method="POST">
+	<form action="/fundos/tipo-de-fundo/salvar" method="POST">
 		Tipo de Fundo: <input name="nomeTipoFundo" value=""/><br/>
 	
 		<input type="submit" value="Cadastrar" />
