@@ -10,7 +10,6 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 public class WebAppInitialiazer implements WebApplicationInitializer {
 
-	//testeDoGithub
 	@Override
 	public void onStartup(ServletContext servletContext)
 			throws ServletException {
