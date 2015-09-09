@@ -1,6 +1,7 @@
 /target/
 
-
+.classpath
+.class
 .settings
 
 database.properties
