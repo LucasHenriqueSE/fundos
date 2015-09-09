@@ -1,7 +1,13 @@
-/database.properties
-*.class
+database.properties
+
+*.class´
+
 *.DS_Store
+
 *.classpath
+
 *.project
-.metadata*
+.
+metadata
+*
 .settings*
