@@ -7,7 +7,7 @@
 <title>Cadastro de Cotas</title>
 </head>
 <body>
-	<form action="/cota/salvar" method="POST">
+	<form action="salvar" method="POST">
 		Valor: <input name="valor" value="" />
 		<!-- 		Data:  -->
 

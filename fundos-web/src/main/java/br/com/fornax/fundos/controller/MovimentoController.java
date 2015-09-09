@@ -17,7 +17,7 @@ public class MovimentoController {
 	@Inject
 	private TipoDeMovimentoService tipoDeMovimentoService;
 
-	@RequestMapping("tiposDeMovimentos")
+	@RequestMapping("tipos-de-movimentos")
 	public String tiposDeMovimentos() {
 		// 
 		for (TipoDeMovimentoFundo t : tipoDeMovimentoService.listarTodos()) {
