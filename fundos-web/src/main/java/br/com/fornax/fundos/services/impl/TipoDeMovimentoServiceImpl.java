@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.fornax.fundos.dao.TipoDeMovimentoDAO;
+import br.com.fornax.fundos.dao.GenericDAO;
 import br.com.fornax.fundos.model.TipoDeMovimentoFundo;
 import br.com.fornax.fundos.services.TipoDeMovimentoService;
 
@@ -18,11 +18,11 @@ import br.com.fornax.fundos.services.TipoDeMovimentoService;
 public class TipoDeMovimentoServiceImpl implements TipoDeMovimentoService {
 
 	@Inject
-	private TipoDeMovimentoDAO tipoDeMovimentoDAO;
+	private GenericDAO dao;
 
 	@Override
 	public Boolean inserir(TipoDeMovimentoFundo tipo) {
-		tipoDeMovimentoDAO.inserir(tipo);
+		dao.inserir(tipo);
 		return null;
 	}
 
