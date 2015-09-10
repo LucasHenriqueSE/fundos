@@ -1,0 +1,45 @@
+package br.com.fornax.fundos.services.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import br.com.fornax.fundos.dao.GenericDAO;
+import br.com.fornax.fundos.model.MovimentoFundo;
+import br.com.fornax.fundos.services.MovimentoFundoService;
+
+@Service
+@Transactional(propagation = Propagation.REQUIRED)
+public class MovimentoFundoServiceImpl implements MovimentoFundoService {
+
+	@Inject
+	GenericDAO dao;
+	
+	@Override
+	public Boolean inserir(MovimentoFundo movimentoFundo) {
+		dao.inserir(movimentoFundo);
+		return null;
+	}
+
+	@Override
+	public Boolean alterar(MovimentoFundo movimentoFundo) {
+		dao.editar(movimentoFundo);
+		return null;
+	}
+
+	@Override
+	public Boolean excluir(MovimentoFundo movimentoFundo) {
+		dao.excluir(movimentoFundo);
+		return null;
+	}
+
+	@Override
+	public List<MovimentoFundo> listarTodos(int id) {
+		dao.listarTodos(id);
+		return null;
+	}
+}
