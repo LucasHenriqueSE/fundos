@@ -7,7 +7,7 @@
 <title>Novo Movimento Fundo</title>
 </head>
 <body>
-	<form action="/movimentos/salvar" method="POST">
+	<form action="/fundos/movimentos/salvar" method="POST">
 		Valor: <input name="valorMovimentoFundo" value="" />
 		Quantidade: <input name="qtdMovimentoFundo" value="" />
 		Valor Cota: <input name="valorCotaMovimentoFundo" value="" /><br/>

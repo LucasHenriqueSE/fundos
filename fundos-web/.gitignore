@@ -1,2 +1,10 @@
+
 /target/
 /target/*
+
+.classpath
+.class
+.settings
+
+database.properties
+

@@ -2,9 +2,9 @@ package br.com.fornax.fundos.config.dao;
 
 import java.util.Properties;
 
+import javax.inject.Inject;
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -25,7 +25,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class ConfigDAO {
 
-	@Autowired
+	@Inject
 	private Environment env;
 
 	@Bean(name = "entityManagerFactory")

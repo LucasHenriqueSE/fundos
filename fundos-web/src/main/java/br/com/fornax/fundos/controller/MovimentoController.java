@@ -35,9 +35,7 @@ public class MovimentoController {
 
 	@RequestMapping(value = "salvar", method = RequestMethod.POST)
 	public String salvarNovoMovimentoFundo(MovimentoFundo novo) {
-		System.out.println(novo.getQtdMovimentoFundo() + "\n"
-				+ novo.getQtdMovimentoFundo() + "\n"
-				+ novo.getValorCotaMovimentoFundo());
+		
 
 		return "novo-movimento-fundo";
 	}
@@ -49,7 +47,7 @@ public class MovimentoController {
 
 	@RequestMapping(value = "tipo-movimento/salvar", method = RequestMethod.POST)
 	public String salvarTipoMovimentoFundos(TipoDeMovimentoFundo novo) {
-		System.out.println(novo.getNomeTipoMovimentoFundo());
+		tipoDeMovimentoService.inserir(novo);
 
 		return "novo-tipo-movimento-fundos";
 	}
