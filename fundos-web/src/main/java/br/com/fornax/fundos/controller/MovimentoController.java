@@ -8,25 +8,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.fornax.fundos.model.MovimentoFundo;
 import br.com.fornax.fundos.model.TipoDeMovimentoFundo;
-import br.com.fornax.fundos.services.TipoDeMovimentoService;
+import br.com.fornax.fundos.services.MovimentoFundoService;
+import br.com.fornax.fundos.services.TipoDeMovimentoFundoService;
 
 @Controller
 @RequestMapping("movimentos")
 public class MovimentoController {
 
 	@Inject
-	private TipoDeMovimentoService tipoDeMovimentoService;
+	private MovimentoFundoService movimentoFundoService;
 
-	@RequestMapping("tipos-de-movimentos")
-	public String tiposDeMovimentos() {
-		// 
-		for (TipoDeMovimentoFundo t : tipoDeMovimentoService.listarTodos()) {
-			System.out.println("ID: " + t.getId() + "\nNome: "
-					+ t.getNomeTipoMovimentoFundo());
-		}
-
-		return "";
-	}
+	@Inject
+	private TipoDeMovimentoFundoService tipoDeMovimentoFundoService;
 
 	@RequestMapping("cadastrar")
 	public String cadastrarNovoMovimentoFundo() {
@@ -35,7 +28,7 @@ public class MovimentoController {
 
 	@RequestMapping(value = "salvar", method = RequestMethod.POST)
 	public String salvarNovoMovimentoFundo(MovimentoFundo novo) {
-		
+		movimentoFundoService.inserir(novo);
 
 		return "novo-movimento-fundo";
 	}
@@ -47,7 +40,7 @@ public class MovimentoController {
 
 	@RequestMapping(value = "tipo-movimento/salvar", method = RequestMethod.POST)
 	public String salvarTipoMovimentoFundos(TipoDeMovimentoFundo novo) {
-		tipoDeMovimentoService.inserir(novo);
+		tipoDeMovimentoFundoService.inserir(novo);
 
 		return "novo-tipo-movimento-fundos";
 	}
