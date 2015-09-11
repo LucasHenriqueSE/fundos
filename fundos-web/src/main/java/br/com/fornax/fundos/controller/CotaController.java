@@ -25,6 +25,6 @@ public class CotaController {
 	public String salvarCota(Cota nova) {
 		cotaService.inserir(nova);
 
-		return "nova-cota";
+		return "";
 	}
 }

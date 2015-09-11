@@ -38,8 +38,8 @@ public class MovimentoFundoServiceImpl implements MovimentoFundoService {
 	}
 
 	@Override
-	public List<MovimentoFundo> listarTodos(int id) {
-		dao.listarTodos(id);
-		return null;
+	public List<Object> listarTodos() {
+		return dao.listarTodos("select m from MovimentoFundo m");
+		
 	}
 }

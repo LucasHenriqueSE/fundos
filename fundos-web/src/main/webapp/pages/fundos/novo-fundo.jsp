@@ -1,17 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="UTF-8" />
 <title>Cadastro de Fundos</title>
 </head>
 <body>
 	<form action="/fundos/salvar" method="POST">
-		Nome: <input name="nome" value="" />
-<!-- 		Cotas: <input name="listaCotas" type="hidden" value="" /> -->
-<!-- 		Movimentos: <input name="listaMovimentos" type="hidden" value="" /><br/> -->
-		
+		Nome: <input name="nome" value="" /> 
+		Tipo: <select name="tipoFundo.id">
+				<option value="">Selecione...</option>
+					<c:forEach var="tipo" items="${tipos}">
+						<option value="${tipo.id}">${tipo.nomeTipoFundo}</option>
+					<c:if test="${tipo.nomeTipoFundo == null}">
+						<script>alert('Erro no login!!!')</script>					
+					</c:if>							
+					</c:forEach>
+			</select>
 		<input type="submit" value="Cadastrar" />
 	</form>
 </body>

@@ -12,5 +12,5 @@ public interface MovimentoFundoService {
 
 	Boolean excluir(MovimentoFundo movimentoFundo);
 
-	List<MovimentoFundo> listarTodos(int id);
+	List<Object> listarTodos();
 }

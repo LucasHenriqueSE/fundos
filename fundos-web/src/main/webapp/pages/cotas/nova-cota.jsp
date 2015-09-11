@@ -9,7 +9,7 @@
 <body>
 	<form action="salvar" method="POST">
 		Valor: <input name="valor" value="" />
-		<!-- 		Data:  -->
+		Data: <input name="data" value="" />
 
 		<input type="submit" value="Cadastrar" />
 	</form>

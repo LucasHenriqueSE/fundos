@@ -22,7 +22,7 @@ public class Cota {
 	@Column(name = "ID_COTA")
 	private Integer id;
 
-	@Column(name = "VALOR", length=(30))
+	@Column(name = "VALOR")
 	private Float valor;
 
 	@Column(name = "DATA_VALOR")

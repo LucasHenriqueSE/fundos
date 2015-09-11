@@ -11,5 +11,5 @@ public interface CotaService {
 
 	Boolean excluir(Cota cota);
 
-	List<Cota> listarTodas(int id);
+	List<Object> listarTodas();
 }

@@ -38,8 +38,7 @@ public class FundoServiceImpl implements FundoService {
 	}
 
 	@Override
-	public List<Fundo> listaTodos(int id) {
-		dao.listarTodos(id);
-		return null;
+	public List<Object> listaTodos() {
+		return dao.listarTodos("select f from Fundo f");
 	}
 }

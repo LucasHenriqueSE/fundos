@@ -38,8 +38,7 @@ public class CotaServiceImpl implements CotaService {
 	}
 
 	@Override
-	public List<Cota> listarTodas(int id) {
-		dao.listarTodos(id);
-		return null;
+	public List<Object> listarTodas() {
+		return dao.listarTodos("select c from Cota c");
 	}
 }

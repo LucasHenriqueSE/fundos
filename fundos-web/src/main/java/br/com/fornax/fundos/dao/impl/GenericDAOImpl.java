@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
@@ -21,24 +22,22 @@ public class GenericDAOImpl implements GenericDAO {
 	@Override
 	public void inserir(Object classe) {
 		em.persist(classe);
-
 	}
 
 	@Override
 	public void editar(Object classe) {
 		em.merge(classe);
-
 	}
 
 	@Override
 	public void excluir(Object classe) {
 		em.remove(classe);
-
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<Object> listarTodos(int id) {
-		return (List<Object>) em.find(Object.class, id);
+	@SuppressWarnings("unchecked")
+	public List<Object> listarTodos(String lista) {
+		Query query = em.createQuery(lista);
+		return query.getResultList();
 	}
 }

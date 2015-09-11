@@ -10,5 +10,5 @@ public interface GenericDAO {
 
 	void excluir(Object classe);
 
-	List<Object> listarTodos(int id);
+	List<Object> listarTodos(String query);
 }
