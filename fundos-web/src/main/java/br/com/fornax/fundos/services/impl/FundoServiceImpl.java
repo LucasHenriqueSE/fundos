@@ -21,8 +21,13 @@ public class FundoServiceImpl implements FundoService {
 
 	@Override
 	public Boolean inserir(Fundo fundo) {
-		dao.inserir(fundo);
-		return null;
+		try {
+			dao.inserir(fundo);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override

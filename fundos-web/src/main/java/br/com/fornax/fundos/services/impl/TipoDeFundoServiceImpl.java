@@ -21,8 +21,13 @@ public class TipoDeFundoServiceImpl implements TipoDeFundoService {
 
 	@Override
 	public Boolean inserir(TipoDeFundo tipoDeFundo) {
-		dao.inserir(tipoDeFundo);
-		return null;
+		try {
+			dao.inserir(tipoDeFundo);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override

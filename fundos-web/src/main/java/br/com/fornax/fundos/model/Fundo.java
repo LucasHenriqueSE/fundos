@@ -2,6 +2,7 @@ package br.com.fornax.fundos.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -24,7 +25,7 @@ public class Fundo {
 	@Column(name = "NOME")
 	private String nome;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "ID_TIPO_FUNDO", nullable = false)
 	private TipoDeFundo tipoFundo;
 
