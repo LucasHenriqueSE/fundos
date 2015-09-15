@@ -4,15 +4,14 @@
 <html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <head>
 <meta charset="UTF-8" />
 <title>Cadastro de Fundos</title>
-<script type="text/javascript">
+<script id="validacaoCampo" type="text/javascript">
 	function validar() {
 		var validaNome = form1.nome.value;
 		var validaTipo = form1.tipoFundo.value;
-		if (validaNome == "" || validaNome.trim() == "") {
+		if (validaNome.trim() == "") {
 			alert('Digite um nome valido');
 			return false;
 		}
@@ -29,7 +28,7 @@
 	<form id="form1" name="form1" action="/fundos/salvar" method="POST"
 		onkeypress='return event.keyCode!=13'>
 		Nome: <input name="nome" value="" autofocus="autofocus" />
-		Tipo: <select id="tipoFundo" name="tipoFundo.id">
+		Fundo: <select id="tipoFundo" name="tipoFundo.id">
 			<option value="">Selecione...</option>
 			<c:forEach var="tipo" items="${tipos}">
 				<option value="${tipo.id}">${tipo.nomeTipoFundo}</option>

@@ -1,16 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset=UTF-8>
 <title>Cadastro Tipo de Movimento Fundos</title>
+<script id="validacaoCampo" type="text/javascript">
+	function validar() {
+		var validaNome = form1.nomeTipoMovimentoFundo.value;
+		if (validaNome.trim() == "") {
+			alert('Informe um nome válido!');
+			form1.nomeTipoMovimentoFundo.focus();
+			return false;
+		} else {
+			document.getElementById("form1").submit();
+		}
+	}
+</script>
 </head>
 <body>
-	<form action="/fundos/movimentos/tipo-movimento/salvar" method="POST">
-		Nome: <input name="nomeTipoMovimentoFundo" value="" />
-		
-		<input type="submit" value="Cadastrar" />
+	<form id="form1" name="form1"
+		action="/fundos/movimentos/tipo-movimento/salvar" method="POST"
+		onsubmit='return event.keyCode!=13'>
+		Nome: <input name="nomeTipoMovimentoFundo" value="" /> <input
+			type="button" value="Cadastrar" onclick='validar()' />
 	</form>
 </body>
 </html>
