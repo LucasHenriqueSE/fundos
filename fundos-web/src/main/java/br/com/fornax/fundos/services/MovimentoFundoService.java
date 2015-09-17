@@ -8,7 +8,7 @@ public interface MovimentoFundoService {
 
 	Boolean inserir(MovimentoFundo movimentoFundo);
 
-	Boolean alterar(MovimentoFundo movimentoFundo);
+	Boolean editar(MovimentoFundo movimentoFundo);
 
 	Boolean excluir(MovimentoFundo movimentoFundo);
 

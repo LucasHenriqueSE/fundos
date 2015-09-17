@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.fornax.fundos.dao.GenericDAO;
+import br.com.fornax.fundos.model.Cota;
 
 @Repository
 @Transactional(propagation = Propagation.MANDATORY)
@@ -39,5 +40,17 @@ public class GenericDAOImpl implements GenericDAO {
 	public List<Object> listarTodos(String lista) {
 		Query query = em.createQuery(lista);
 		return query.getResultList();
+	}
+
+	@Override
+	public List<Cota> listarCotasPorFundo(int id) {
+		Query query = em.createQuery("select c from Cota c where c.fundo.id = :idCota");
+		query.setParameter("idCota", id);
+		return query.getResultList();
+	}
+
+	@Override
+	public Cota listarCotaPorId(int id) {
+		return em.find(Cota.class, id);
 	}
 }

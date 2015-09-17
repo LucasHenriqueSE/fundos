@@ -21,12 +21,17 @@ public class TipoDeMovimentoFundoServiceImpl implements TipoDeMovimentoFundoServ
 
 	@Override
 	public Boolean inserir(TipoDeMovimentoFundo tipo) {
-		dao.inserir(tipo);
-		return null;
+		try {
+			dao.inserir(tipo);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
-	public Boolean alterar(TipoDeMovimentoFundo tipo) {
+	public Boolean editar(TipoDeMovimentoFundo tipo) {
 		dao.editar(tipo);
 		return null;
 	}

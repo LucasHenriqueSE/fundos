@@ -12,5 +12,5 @@ public interface FundoService {
 
 	Boolean excluir(Fundo fundo);
 
-	List<Object> listaTodos();
+	List<Object> listarTodos();
 }

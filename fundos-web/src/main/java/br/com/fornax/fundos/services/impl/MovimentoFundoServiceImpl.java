@@ -21,12 +21,17 @@ public class MovimentoFundoServiceImpl implements MovimentoFundoService {
 	
 	@Override
 	public Boolean inserir(MovimentoFundo movimentoFundo) {
-		dao.inserir(movimentoFundo);
-		return null;
+		try {
+			dao.inserir(movimentoFundo);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
-	public Boolean alterar(MovimentoFundo movimentoFundo) {
+	public Boolean editar(MovimentoFundo movimentoFundo) {
 		dao.editar(movimentoFundo);
 		return null;
 	}

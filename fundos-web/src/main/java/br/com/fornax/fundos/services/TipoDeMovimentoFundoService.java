@@ -7,7 +7,7 @@ import br.com.fornax.fundos.model.TipoDeMovimentoFundo;
 public interface TipoDeMovimentoFundoService {
 	Boolean inserir(TipoDeMovimentoFundo tipoDeMovimentoFundo);
 
-	Boolean alterar(TipoDeMovimentoFundo tipoDeMovimentoFundo);
+	Boolean editar(TipoDeMovimentoFundo tipoDeMovimentoFundo);
 
 	Boolean excluir(TipoDeMovimentoFundo tipoDeMovimentoFundo);
 

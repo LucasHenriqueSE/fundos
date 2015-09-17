@@ -43,7 +43,7 @@ public class TipoDeFundoServiceImpl implements TipoDeFundoService {
 	}
 
 	@Override
-	public List<Object> listaTodos() {
+	public List<Object> listarTodos() {
 		return dao.listarTodos("select t from TipoDeFundo t"); 
 	}
 }

@@ -2,7 +2,6 @@ package br.com.fornax.fundos.model;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -30,7 +29,7 @@ public class Cota {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ID_FUNDO", nullable = false)
 	private Fundo fundo;
 

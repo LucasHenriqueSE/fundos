@@ -27,7 +27,7 @@
 <body>
 	<form id="form1" name="form1" action="/fundos/salvar" method="POST"
 		onkeypress='return event.keyCode!=13'>
-		Nome: <input name="nome" value="" autofocus="autofocus" />
+		Nome: <input name="nome" value="" pattern="[a-z\s]+$" autofocus="autofocus" />
 		Fundo: <select id="tipoFundo" name="tipoFundo.id">
 			<option value="">Selecione...</option>
 			<c:forEach var="tipo" items="${tipos}">

@@ -24,7 +24,7 @@
 	<form id="form1" name="form1"
 		action="/fundos/movimentos/tipo-movimento/salvar" method="POST"
 		onsubmit='return event.keyCode!=13'>
-		Nome: <input name="nomeTipoMovimentoFundo" value="" /> <input
+		Nome: <input name="nomeTipoMovimentoFundo" value="" pattern="[a-z\s]+$" autofocus="autofocus"/> <input
 			type="button" value="Cadastrar" onclick='validar()' />
 	</form>
 </body>

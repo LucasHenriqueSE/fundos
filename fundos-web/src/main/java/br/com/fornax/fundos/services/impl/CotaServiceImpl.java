@@ -1,5 +1,8 @@
 package br.com.fornax.fundos.services.impl;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -21,14 +24,37 @@ public class CotaServiceImpl implements CotaService {
 
 	@Override
 	public Boolean inserir(Cota cota) {
-		dao.inserir(cota);
-		return null;
+		try {
+			dao.inserir(cota);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
-	public Boolean alterar(Cota cota) {
+	public Boolean editar(Cota cota, String dataCadastro) {
+		cota.setData(convertData(dataCadastro));
 		dao.editar(cota);
 		return null;
+	}
+
+	private Date convertData(String dataCadastro) {
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		
+		Date date = null;
+		
+		try {
+			date = formatter.parse(dataCadastro);
+
+			System.out.println(date);
+			System.out.println(formatter.format(date));
+
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return date;
 	}
 
 	@Override
@@ -40,5 +66,16 @@ public class CotaServiceImpl implements CotaService {
 	@Override
 	public List<Object> listarTodas() {
 		return dao.listarTodos("select c from Cota c");
+	}
+
+	@Override
+	public List<Cota> listarCotasPorFundo(int id) {
+		return dao.listarCotasPorFundo(id);
+
+	}
+
+	@Override
+	public Cota listarCotaPorId(int id) {
+		return dao.listarCotaPorId(id);
 	}
 }
