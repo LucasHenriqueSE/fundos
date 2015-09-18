@@ -29,7 +29,7 @@
 		}
 
 		// Verificar se o formato da data digitada está correto       
-		var patternData = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
+		var patternData = /^(\d{2}).(\d{2}).(\d{4}).(\d{2}).(\d{2}).(\d{2})$/;
 		if (!patternData.test(validaData)) {
 			alert("Digite a data no formato Dia/Mês/Ano");
 			form1.data.focus();

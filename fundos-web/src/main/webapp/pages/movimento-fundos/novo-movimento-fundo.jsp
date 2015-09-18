@@ -2,13 +2,16 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <head>
 <meta charset=UTF-8>
 <title>Novo Movimento Fundo</title>
 <script id="validacaoCampo" type="text/javascript">
 	function valida() {
+		var validaData = form1.dataCadastro.value;
 		var validaValor = form1.valorMovimentoFundo.value;
-		if (validaValor.trim() == "") {
+		if (validaValor.trim() == "" ) {
 			alert('Informe o valor do movimento.');
 			return false;
 		}
@@ -27,8 +30,7 @@
 			form1.data.focus();
 			return false;
 		}
-		var validaData = form1.dataMovimentoFundo.value;
-		var patternData = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
+		var patternData = /^(\d{2}).(\d{2}).(\d{4}).(\d{2}).(\d{2}).(\d{2})$/;
 		if (!patternData.test(validaData)) {
 			alert("Digite a data no formato Dia/Mês/Ano");
 			form1.data.focus();
@@ -42,11 +44,18 @@
 <body>
 	<form id="form1" name="form1" action="/fundos/movimentos/salvar"
 		method="POST" onsubmit='return event.keyCode!=13'>
+		<input type="hidden" name="fundo.id" value="${idFundo}"/>
+		Tipo: <select id="tipo" name="tipoMovimento.id">
+				<option selected="selected">Selecione...</option>
+				<c:forEach var="tipo" items="${tipos}">
+					<option id="tipo" value="${tipo.id}">${tipo.nomeTipoMovimentoFundo}</option>
+				</c:forEach>
+		</select>
 		Valor: <input type="tel" name="valorMovimentoFundo" value=""
-			pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$" required="required"/> Quantidade: <input
-			name="qtdMovimentoFundo" value="" /> Valor Cota: <input
-			name="valorCotaMovimentoFundo" value="" /><br /> Data: <input
-			name="dataMovimentoFundo" value="" /><br /> <input type="submit"
+			pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$" />
+			Quantidade: <input name="qtdMovimentoFundo" value="" />
+			Valor Cota: <input name="valorCotaMovimentoFundo" value="" /><br />
+			Data: <input name="dataCadastro" value="" /><br /> <input type="submit"
 			value="Cadastrar" onclick='valida()' />
 	</form>
 </body>

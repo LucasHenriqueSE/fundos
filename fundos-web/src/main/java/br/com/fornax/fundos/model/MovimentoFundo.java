@@ -35,11 +35,11 @@ public class MovimentoFundo {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataMovimentoFundo;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ID_FUNDO", nullable = false)
 	private Fundo fundo;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ID_TIPO_MOVIMENTO_FUNDO", nullable = false)
 	private TipoDeMovimentoFundo tipoMovimento;
 

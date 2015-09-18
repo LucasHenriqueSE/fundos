@@ -1,5 +1,8 @@
 package br.com.fornax.fundos.services.impl;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -20,14 +23,32 @@ public class MovimentoFundoServiceImpl implements MovimentoFundoService {
 	GenericDAO dao;
 	
 	@Override
-	public Boolean inserir(MovimentoFundo movimentoFundo) {
+	public Boolean inserir(MovimentoFundo movimentoFundo, String dataCadastro) {
 		try {
+			movimentoFundo.setDataMovimentoFundo(convertData(dataCadastro));
 			dao.inserir(movimentoFundo);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	private Date convertData(String dataCadastro) {
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		
+		Date date = null;
+		
+		try {
+			date = formatter.parse(dataCadastro);
+
+			System.out.println(date);
+			System.out.println(formatter.format(date));
+
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return date;
 	}
 
 	@Override
@@ -46,5 +67,15 @@ public class MovimentoFundoServiceImpl implements MovimentoFundoService {
 	public List<Object> listarTodos() {
 		return dao.listarTodos("select m from MovimentoFundo m");
 		
+	}
+
+	@Override
+	public List<MovimentoFundo> listarMovimentosPorFundo(int id) {
+		return dao.listarMovimentosPorFundo(id);
+	}
+
+	@Override
+	public MovimentoFundo buscarMovimentoPorIdFundoEIdMov(int idFundo, int idMov) {
+		return dao.buscarMovimentoPorIdFundoEIdMov(idFundo, idMov);
 	}
 }

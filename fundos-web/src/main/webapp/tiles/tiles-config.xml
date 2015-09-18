@@ -7,6 +7,8 @@
 	<definition name="nova-cota" template="/pages/cotas/nova-cota.jsp" />
 	<definition name="novo-fundo" template="/pages/fundos/novo-fundo.jsp" />
 	<definition name="listar-cota" template="/pages/cotas/listar-cota.jsp" />
+	<definition name="listar-movimento" template="/pages/movimento-fundos/listar-movimento-fundo.jsp" />
+	<definition name="editar-movimento-fundo" template="/pages/movimento-fundos/editar-movimento-fundo.jsp" />
 	<definition name="editar-cota" template="/pages/cotas/editar-cota.jsp"/>
 	<definition name="editar-fundo" template="/pages/fundos/editar-fundo.jsp"/>
 	<definition name="novo-tipo-fundo" template="/pages/tipo-fundos/novo-tipo-fundo.jsp" />

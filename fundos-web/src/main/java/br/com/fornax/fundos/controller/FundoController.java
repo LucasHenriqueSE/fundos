@@ -12,13 +12,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.fornax.fundos.model.Cota;
 import br.com.fornax.fundos.model.Fundo;
+import br.com.fornax.fundos.model.MovimentoFundo;
 import br.com.fornax.fundos.model.TipoDeFundo;
 import br.com.fornax.fundos.services.CotaService;
 import br.com.fornax.fundos.services.FundoService;
+import br.com.fornax.fundos.services.MovimentoFundoService;
 import br.com.fornax.fundos.services.TipoDeFundoService;
 
 @Controller
 public class FundoController {
+	
+	@Inject
+	private MovimentoFundoService movimentoFundoService;
 
 	@Inject
 	private FundoService fundoService;
@@ -68,6 +73,17 @@ public class FundoController {
 		listaCotas = cotaService.listarCotasPorFundo(id);
 		mav.setViewName("listar-cota");
 		mav.addObject("cotas", listaCotas);
+		return mav;
+	}
+	
+	@RequestMapping("fundo/{id}/movimentos")
+	public ModelAndView listarMovimentos(@PathVariable("id") int id) {
+		List<MovimentoFundo> listaMovimentos;
+		mav = new ModelAndView();
+		listaMovimentos = movimentoFundoService.listarMovimentosPorFundo(id);
+		mav.setViewName("listar-movimento");
+		mav.addObject("movimentos", listaMovimentos);
+		
 		return mav;
 	}
 	

@@ -9,9 +9,9 @@
 <title>Alterar Cota</title>
 <script type="text/javascript">
 	function listarCotas() {
-		var idCota = form1.fundo.value;
+		var idFundo = form1.fundo.value;
 
-		window.location = "/fundos/fundo/" + idCota + "/cotas";
+		window.location = "/fundos/fundo/" + idFundo + "/cotas";
 	}
 </script>
 </head>
