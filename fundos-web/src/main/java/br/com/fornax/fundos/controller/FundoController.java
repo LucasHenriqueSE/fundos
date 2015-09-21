@@ -38,7 +38,7 @@ public class FundoController {
 	@RequestMapping("/")
 	public ModelAndView index(){
 		this.mav.clear();
-		this.mav.setViewName("index");
+		this.mav.setViewName("listar-fundo");
 		this.mav.addObject("fundos", fundoService.listarTodos());
 		
 		return mav;
@@ -65,6 +65,7 @@ public class FundoController {
 		this.mav.clear();
 		mav.setViewName("editar-fundo");
 		mav.addObject("fundo", fundoService.listarPorId(id));
+		mav.addObject("tipos", tipoDeFundoService.listarTodos());
 		return mav;
 	}
 	
@@ -73,11 +74,11 @@ public class FundoController {
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping("fundo/{id}/cotas")
-	public ModelAndView listarCotas(@PathVariable("id") int id) {
+	@RequestMapping("fundo/{idFundo}/cotas")
+	public ModelAndView listarCotas(@PathVariable("idFundo") int idFundo) {
 		this.mav.clear();
 		mav.setViewName("listar-cota");
-		mav.addObject("cotas", cotaService.listarCotasPorFundo(id));
+		mav.addObject("cotas", cotaService.listarCotasPorFundo(idFundo));
 		return mav;
 	}
 	
@@ -86,14 +87,15 @@ public class FundoController {
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping("fundo/{id}/movimentos")
-	public ModelAndView listarMovimentos(@PathVariable("id") int id) {
+	@RequestMapping("fundo/{idFundo}/movimentos")
+	public ModelAndView listarMovimentos(@PathVariable("idFundo") int idFundo) {
 		this.mav.clear();
 		mav.setViewName("listar-movimento");
-		mav.addObject("movimentos", movimentoFundoService.listarMovimentosPorFundo(id));
+		mav.addObject("movimentos", movimentoFundoService.listarMovimentosPorFundo(idFundo));
+		mav.addObject("idFundo", idFundo);
 		return mav;
 	}
-	
+
 	/**Salva o fundo no banco de dados e redireciona para a página de lista de fundos
 	 * @param novo
 	 * @return
@@ -103,12 +105,12 @@ public class FundoController {
 		fundoService.inserir(novo);
 		return "redirect:/";
 	}
-
+	
 	/**Altera o fundo no banco de dados.
 	 * @param fundo
 	 * @return
 	 */
-	@RequestMapping(value="fundos/alterar", method=RequestMethod.POST)
+	@RequestMapping(value="alterar", method=RequestMethod.POST)
 	public String alterar(Fundo fundo){
 		fundoService.editar(fundo);
 		return "redirect:/";

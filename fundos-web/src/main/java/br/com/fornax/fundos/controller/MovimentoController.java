@@ -48,7 +48,8 @@ public class MovimentoController {
 	}
 	
 	@RequestMapping("alterar")
-	public String alterar(){
+	public String alterar(MovimentoFundo movimentoFundo, String dataCadastro){
+		movimentoFundoService.editar(movimentoFundo, dataCadastro);
 		return "editar-movimento-fundo";
 	}
 	

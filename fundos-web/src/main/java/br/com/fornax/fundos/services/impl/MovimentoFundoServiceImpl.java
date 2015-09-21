@@ -52,7 +52,8 @@ public class MovimentoFundoServiceImpl implements MovimentoFundoService {
 	}
 
 	@Override
-	public Boolean editar(MovimentoFundo movimentoFundo) {
+	public Boolean editar(MovimentoFundo movimentoFundo, String dataCadastro) {
+		movimentoFundo.setDataMovimentoFundo(convertData(dataCadastro));
 		dao.editar(movimentoFundo);
 		return null;
 	}

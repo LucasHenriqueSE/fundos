@@ -76,6 +76,6 @@ public class CotaServiceImpl implements CotaService {
 
 	@Override
 	public Cota buscarCotaPorId(int idCota) {
-		return (Cota) dao.listarPorId(Cota.class,idCota);
+		return (Cota) dao.listarPorId(new Cota(),idCota);
 	}
 }
