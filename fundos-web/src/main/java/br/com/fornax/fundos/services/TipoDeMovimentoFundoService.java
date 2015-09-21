@@ -5,6 +5,7 @@ import java.util.List;
 import br.com.fornax.fundos.model.TipoDeMovimentoFundo;
 
 public interface TipoDeMovimentoFundoService {
+	
 	Boolean inserir(TipoDeMovimentoFundo tipoDeMovimentoFundo);
 
 	Boolean editar(TipoDeMovimentoFundo tipoDeMovimentoFundo);

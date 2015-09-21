@@ -13,4 +13,6 @@ public interface FundoService {
 	Boolean excluir(Fundo fundo);
 
 	List<Object> listarTodos();
+
+	Fundo listarPorId(int id);
 }

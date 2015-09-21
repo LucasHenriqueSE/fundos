@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.fornax.fundos.dao.GenericDAO;
+import br.com.fornax.fundos.dao.CotaDAO;
 import br.com.fornax.fundos.model.Cota;
 import br.com.fornax.fundos.services.CotaService;
 
@@ -20,7 +20,7 @@ import br.com.fornax.fundos.services.CotaService;
 public class CotaServiceImpl implements CotaService {
 
 	@Inject
-	GenericDAO dao;
+	private CotaDAO dao;
 
 	@Override
 	public Boolean inserir(Cota cota) {
@@ -76,6 +76,6 @@ public class CotaServiceImpl implements CotaService {
 
 	@Override
 	public Cota listarCotaPorId(int id) {
-		return dao.listarCotaPorId(id);
+		return (Cota) dao.listarPorId(Cota.class,id);
 	}
 }

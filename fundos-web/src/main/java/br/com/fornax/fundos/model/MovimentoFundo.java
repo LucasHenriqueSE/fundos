@@ -49,6 +49,10 @@ public class MovimentoFundo {
 		return id;
 	}
 	
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	public Float getValorMovimentoFundo() {
 		return valorMovimentoFundo;
 	}
