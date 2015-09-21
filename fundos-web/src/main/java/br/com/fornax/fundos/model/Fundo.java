@@ -25,7 +25,7 @@ public class Fundo {
 	@Column(name = "NOME")
 	private String nome;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "ID_TIPO_FUNDO", nullable = false)
 	private TipoDeFundo tipoFundo;
 
@@ -34,13 +34,11 @@ public class Fundo {
 
 	@OneToMany(mappedBy = "fundo", fetch = FetchType.LAZY)
 	private List<MovimentoFundo> listaMovimentos;
+	
+	/**GETTERS AND SETTERS*/
 
 	public Integer getId() {
 		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public String getNome() {

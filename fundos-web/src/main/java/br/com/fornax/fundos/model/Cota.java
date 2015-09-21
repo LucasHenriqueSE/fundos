@@ -32,13 +32,11 @@ public class Cota {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ID_FUNDO", nullable = false)
 	private Fundo fundo;
+	
+	/**GETTERS AND SETTERS*/
 
 	public Integer getId() {
 		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public Float getValor() {
