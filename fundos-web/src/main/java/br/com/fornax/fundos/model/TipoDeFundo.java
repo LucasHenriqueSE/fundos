@@ -50,3 +50,4 @@ public class TipoDeFundo {
 	public void setListaFundos(List<Fundo> listaFundos) {
 		this.listaFundos = listaFundos;
 	}
+}
