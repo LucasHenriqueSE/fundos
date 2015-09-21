@@ -4,9 +4,10 @@
 
 <tiles-definitions>
 	<!-- Fundo -->
-	<definition name="index" template="/pages/index.jsp" />
+	<definition name="listar-fundo" template="/pages/fundos/listar-fundo.jsp" />
 	<definition name="novo-fundo" template="/pages/fundos/novo-fundo.jsp" />
 	<definition name="editar-fundo" template="/pages/fundos/editar-fundo.jsp"/>
+	
 	<!-- Cota -->
 	<definition name="listar-cota" template="/pages/cotas/listar-cota.jsp" />
 	<definition name="nova-cota" template="/pages/cotas/nova-cota.jsp" />
@@ -20,7 +21,6 @@
 	<!-- Tipos de Fundo -->
 	<definition name="listar-tipo-fundo" template="/pages/tipo-fundos/listar-tipo-fundo.jsp" />
 	<definition name="novo-tipo-fundo" template="/pages/tipo-fundos/novo-tipo-fundo.jsp" />
-	
 	
 	<!-- Tipos de Movimento -->
 	<definition name="novo-tipo-movimento-fundos" template="/pages/tipo-movimento-fundos/novo-tipo-movimento-fundos.jsp" />	

@@ -38,7 +38,7 @@ public class FundoController {
 	@RequestMapping("/")
 	public ModelAndView index(){
 		this.mav.clear();
-		this.mav.setViewName("index");
+		this.mav.setViewName("listar-fundo");
 		this.mav.addObject("fundos", fundoService.listarTodos());
 		
 		return mav;
@@ -65,6 +65,7 @@ public class FundoController {
 		this.mav.clear();
 		mav.setViewName("editar-fundo");
 		mav.addObject("fundo", fundoService.listarPorId(id));
+		mav.addObject("tipos", tipoDeFundoService.listarTodos());
 		return mav;
 	}
 	
@@ -90,7 +91,8 @@ public class FundoController {
 	public ModelAndView listarMovimentos(@PathVariable("idFundo") int idFundo) {
 		this.mav.clear();
 		mav.setViewName("listar-movimento");
-		mav.addObject("movimentos", movimentoFundoService.listarMovimentosPorFundo(id));
+		mav.addObject("movimentos", movimentoFundoService.listarMovimentosPorFundo(idFundo));
+		mav.addObject("idFundo", idFundo);
 		return mav;
 	}
 
@@ -108,7 +110,7 @@ public class FundoController {
 	 * @param fundo
 	 * @return
 	 */
-	@RequestMapping(value="fundos/alterar", method=RequestMethod.POST)
+	@RequestMapping(value="alterar", method=RequestMethod.POST)
 	public String alterar(Fundo fundo){
 		fundoService.editar(fundo);
 		return "redirect:/";
