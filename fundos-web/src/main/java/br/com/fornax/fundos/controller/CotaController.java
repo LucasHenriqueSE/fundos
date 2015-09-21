@@ -45,10 +45,10 @@ public class CotaController {
 		return "nova-cota";
 	}
 	
-	@RequestMapping("editar/{id}")
-	public ModelAndView editarCota(@PathVariable("id") int id){
+	@RequestMapping("editar/{idCota}")
+	public ModelAndView editarCota(@PathVariable("idCota") int idCota){
 		mav = new ModelAndView();
-		Cota cota = cotaService.listarCotaPorId(id);
+		Cota cota = cotaService.buscarCotaPorId(idCota);
 
 		mav.setViewName("editar-cota");
 		mav.addObject("cota", cota);

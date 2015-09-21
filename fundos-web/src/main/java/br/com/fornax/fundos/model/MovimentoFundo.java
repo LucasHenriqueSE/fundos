@@ -42,15 +42,17 @@ public class MovimentoFundo {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ID_TIPO_MOVIMENTO_FUNDO", nullable = false)
 	private TipoDeMovimentoFundo tipoMovimento;
+	
+	/**GETTERS AND SETTERS*/
 
 	public Integer getId() {
 		return id;
 	}
-
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+	
 	public Float getValorMovimentoFundo() {
 		return valorMovimentoFundo;
 	}

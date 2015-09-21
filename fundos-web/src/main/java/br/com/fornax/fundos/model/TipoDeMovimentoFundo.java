@@ -24,6 +24,8 @@ public class TipoDeMovimentoFundo {
 
 	@OneToMany(mappedBy = "tipoMovimento", fetch = FetchType.LAZY)
 	private List<MovimentoFundo> listaMovimentos;
+	
+	/**GETTERS AND SETTERS*/
 
 	public Integer getId() {
 		return id;

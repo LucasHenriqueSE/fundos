@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.fornax.fundos.dao.GenericDAO;
+import br.com.fornax.fundos.dao.TipoDeFundoDAO;
 import br.com.fornax.fundos.model.TipoDeFundo;
 import br.com.fornax.fundos.services.TipoDeFundoService;
 
@@ -17,7 +17,7 @@ import br.com.fornax.fundos.services.TipoDeFundoService;
 public class TipoDeFundoServiceImpl implements TipoDeFundoService {
 
 	@Inject
-	GenericDAO dao;
+	private TipoDeFundoDAO dao;
 
 	@Override
 	public Boolean inserir(TipoDeFundo tipoDeFundo) {

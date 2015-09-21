@@ -24,11 +24,13 @@ public class TipoDeFundo {
 
 	@OneToMany(mappedBy = "tipoFundo", fetch = FetchType.LAZY)
 	private List<Fundo> listaFundos;
+	
+	/**GETTERS AND SETTERS*/
 
 	public Integer getId() {
 		return id;
 	}
-
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}

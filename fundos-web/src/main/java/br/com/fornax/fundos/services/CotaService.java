@@ -13,7 +13,7 @@ public interface CotaService {
 
 	List<Object> listarTodas();
 
-	List<Cota> listarCotasPorFundo(int id);
+	List<Cota> listarCotasPorFundo(int idFundo);
 
-	Cota listarCotaPorId(int id);
+	Cota buscarCotaPorId(int idCota);
 }
