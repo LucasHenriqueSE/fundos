@@ -16,7 +16,7 @@ import br.com.fornax.fundos.services.TipoDeFundoService;
 
 @Controller
 public class FundoController {
-	
+
 	@Inject
 	private MovimentoFundoService movimentoFundoService;
 
@@ -103,7 +103,7 @@ public class FundoController {
 		fundoService.inserir(novo);
 		return "redirect:/";
 	}
-		
+
 	/**Altera o fundo no banco de dados.
 	 * @param fundo
 	 * @return
