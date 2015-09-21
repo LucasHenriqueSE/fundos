@@ -21,8 +21,13 @@ public class FundoServiceImpl implements FundoService {
 
 	@Override
 	public Boolean inserir(Fundo fundo) {
-		dao.inserir(fundo);
-		return null;
+		try {
+			dao.inserir(fundo);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
@@ -38,8 +43,7 @@ public class FundoServiceImpl implements FundoService {
 	}
 
 	@Override
-	public List<Fundo> listaTodos(int id) {
-		dao.listarTodos(id);
-		return null;
+	public List<Object> listarTodos() {
+		return dao.listarTodos("select f from Fundo f");
 	}
 }

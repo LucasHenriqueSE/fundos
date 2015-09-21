@@ -2,6 +2,9 @@ package br.com.fornax.fundos.dao;
 
 import java.util.List;
 
+import br.com.fornax.fundos.model.Cota;
+import br.com.fornax.fundos.model.MovimentoFundo;
+
 public interface GenericDAO {
 	
 	void inserir(Object classe);
@@ -10,5 +13,13 @@ public interface GenericDAO {
 
 	void excluir(Object classe);
 
-	List<Object> listarTodos(int id);
+	List<Object> listarTodos(String query);
+
+	List<Cota> listarCotasPorFundo(int id);
+
+	Cota listarCotaPorId(int id);
+
+	List<MovimentoFundo> listarMovimentosPorFundo(int id);
+
+	MovimentoFundo buscarMovimentoPorIdFundoEIdMov(int idFundo, int idMov);
 }

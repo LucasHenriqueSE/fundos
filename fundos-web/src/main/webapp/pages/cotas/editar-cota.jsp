@@ -10,8 +10,7 @@
 <script id="validacaoCampo" type="text/javascript">
 	function validar() {
 		var validaValor = form1.valor.value;
-		var validaFundo = form1.fundo.value
-		var validaData = form1.data.value;
+		var validaData = form1.dataCadastro.value;
 		if (validaValor.trim() == "") {
 			alert('Informe o valor da cota');
 			return false;
@@ -23,16 +22,11 @@
 			return false;
 		}
 
-		if (validaFundo == "") {
-			alert('Selecione um fundo');
-			return false;
-		}
-
 		// Verificar se o formato da data digitada está correto       
 		var patternData = /^(\d{2}).(\d{2}).(\d{4}).(\d{2}).(\d{2}).(\d{2})$/;
 		if (!patternData.test(validaData)) {
 			alert("Digite a data no formato Dia/Mês/Ano");
-			form1.data.focus();
+			form1.dataCadastro.focus();
 			return false;
 		} else {
 			document.getElementById("form1").submit();
@@ -42,16 +36,14 @@
 </script>
 </head>
 <body>
-	<form id="form1" name="form1" action="salvar" method="POST"
+	<form id="form1" name="form1" action="/fundos/cota/alterar" method="POST"
 		onsubmit='return event.keyCode!=13'>
-
-		Valor: <input name="valor" value="" pattern="[a-z\s]+$" autofocus="autofocus" /> Data: <input
-			name="data" value="" /> Fundo: <select id="fundo" name="fundo.id">
-			<option value="">Selecione...</option>
-			<c:forEach var="fundo" items="${fundos}">
-				<option value="${fundo.id}">${fundo.nome}</option>
-			</c:forEach>
-		</select><br /> <input type="button" value="Cadastrar" onclick='validar()' />
+		<input type="hidden" name="fundo.id" value="${cota.fundo.id}">
+		<input type="hidden" name="id" value="${cota.id}">
+		Valor: <input name="valor" value="${cota.valor}" autofocus="autofocus" />
+			Data: <input name="dataCadastro" value="${cota.data}" /> <br />
+			<input type="button" value="Alterar"
+			onclick='validar()' />
 	</form>
 </body>
 </html>

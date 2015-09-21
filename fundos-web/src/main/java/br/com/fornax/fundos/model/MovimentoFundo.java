@@ -35,22 +35,20 @@ public class MovimentoFundo {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataMovimentoFundo;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ID_FUNDO", nullable = false)
 	private Fundo fundo;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ID_TIPO_MOVIMENTO_FUNDO", nullable = false)
 	private TipoDeMovimentoFundo tipoMovimento;
+	
+	/**GETTERS AND SETTERS*/
 
 	public Integer getId() {
 		return id;
 	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
+	
 	public Float getValorMovimentoFundo() {
 		return valorMovimentoFundo;
 	}

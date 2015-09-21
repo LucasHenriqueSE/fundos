@@ -6,11 +6,15 @@ import br.com.fornax.fundos.model.MovimentoFundo;
 
 public interface MovimentoFundoService {
 
-	Boolean inserir(MovimentoFundo movimentoFundo);
+	Boolean inserir(MovimentoFundo movimentoFundo, String dataCadastro);
 
-	Boolean alterar(MovimentoFundo movimentoFundo);
+	Boolean editar(MovimentoFundo movimentoFundo);
 
 	Boolean excluir(MovimentoFundo movimentoFundo);
 
-	List<MovimentoFundo> listarTodos(int id);
+	List<Object> listarTodos();
+
+	List<MovimentoFundo> listarMovimentosPorFundo(int id);
+	
+	MovimentoFundo buscarMovimentoPorIdFundoEIdMov(int idFundo, int idMov);
 }

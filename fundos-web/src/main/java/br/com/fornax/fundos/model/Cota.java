@@ -22,23 +22,21 @@ public class Cota {
 	@Column(name = "ID_COTA")
 	private Integer id;
 
-	@Column(name = "VALOR", length=(30))
+	@Column(name = "VALOR")
 	private Float valor;
 
 	@Column(name = "DATA_VALOR")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ID_FUNDO", nullable = false)
 	private Fundo fundo;
+	
+	/**GETTERS AND SETTERS*/
 
 	public Integer getId() {
 		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public Float getValor() {

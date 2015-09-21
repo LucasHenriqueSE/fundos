@@ -1,10 +1,14 @@
 package br.com.fornax.fundos.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import br.com.fornax.fundos.model.MovimentoFundo;
 import br.com.fornax.fundos.model.TipoDeMovimentoFundo;
@@ -20,17 +24,45 @@ public class MovimentoController {
 
 	@Inject
 	private TipoDeMovimentoFundoService tipoDeMovimentoFundoService;
+	
+	private ModelAndView mav;
 
-	@RequestMapping("cadastrar")
-	public String cadastrarNovoMovimentoFundo() {
-		return "novo-movimento-fundo";
+	@RequestMapping("cadastrar/{idFundo}")
+	public ModelAndView cadastrarNovoMovimentoFundo(@PathVariable("idFundo") int idFundo) {
+		List<Object> listarTipos;
+		mav = new ModelAndView();
+		
+		listarTipos = tipoDeMovimentoFundoService.listarTodos();
+		
+		mav.setViewName("novo-movimento-fundo");
+		mav.addObject("tipos", listarTipos);
+		mav.addObject("idFundo", idFundo);
+		return mav;
 	}
 
 	@RequestMapping(value = "salvar", method = RequestMethod.POST)
-	public String salvarNovoMovimentoFundo(MovimentoFundo novo) {
-		movimentoFundoService.inserir(novo);
+	public String salvarNovoMovimentoFundo(MovimentoFundo novo, String dataCadastro) {
+		movimentoFundoService.inserir(novo, dataCadastro);
 
 		return "novo-movimento-fundo";
+	}
+	
+	@RequestMapping("alterar")
+	public String alterar(){
+		return "editar-movimento-fundo";
+	}
+	
+	@RequestMapping("{movimento.fundo.id}/movimento/{movimento.id}")
+	public ModelAndView editar(@PathVariable("movimento.fundo.id") int idFundo, @PathVariable("movimento.id") int idMovimento){
+		MovimentoFundo movimentoFundo;
+		mav = new ModelAndView();
+		
+		movimentoFundo = movimentoFundoService.buscarMovimentoPorIdFundoEIdMov(idFundo, idMovimento);
+		
+		
+		mav.setViewName("editar-movimento-fundo");
+		mav.addObject("movimentoFundo", movimentoFundo);
+		return mav;
 	}
 
 	@RequestMapping("tipo-movimento/cadastrar")
