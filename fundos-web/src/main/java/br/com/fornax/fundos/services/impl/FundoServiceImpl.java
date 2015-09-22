@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.fornax.fundos.dao.GenericDAO;
+import br.com.fornax.fundos.dao.FundoDAO;
 import br.com.fornax.fundos.model.Fundo;
 import br.com.fornax.fundos.services.FundoService;
 
@@ -17,7 +17,7 @@ import br.com.fornax.fundos.services.FundoService;
 public class FundoServiceImpl implements FundoService {
 
 	@Inject
-	GenericDAO dao;
+	private FundoDAO dao;
 
 	@Override
 	public Boolean inserir(Fundo fundo) {
@@ -45,5 +45,10 @@ public class FundoServiceImpl implements FundoService {
 	@Override
 	public List<Object> listarTodos() {
 		return dao.listarTodos("select f from Fundo f");
+	}
+
+	@Override
+	public Fundo listarPorId(int id) {
+		return (Fundo) dao.listarPorId(new Fundo(), id);
 	}
 }

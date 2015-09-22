@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.fornax.fundos.dao.GenericDAO;
+import br.com.fornax.fundos.dao.MovimentoFundoDAO;
 import br.com.fornax.fundos.model.MovimentoFundo;
 import br.com.fornax.fundos.services.MovimentoFundoService;
 
@@ -20,7 +20,7 @@ import br.com.fornax.fundos.services.MovimentoFundoService;
 public class MovimentoFundoServiceImpl implements MovimentoFundoService {
 
 	@Inject
-	GenericDAO dao;
+	private MovimentoFundoDAO dao;
 	
 	@Override
 	public Boolean inserir(MovimentoFundo movimentoFundo, String dataCadastro) {
@@ -52,7 +52,8 @@ public class MovimentoFundoServiceImpl implements MovimentoFundoService {
 	}
 
 	@Override
-	public Boolean editar(MovimentoFundo movimentoFundo) {
+	public Boolean editar(MovimentoFundo movimentoFundo, String dataCadastro) {
+		movimentoFundo.setDataMovimentoFundo(convertData(dataCadastro));
 		dao.editar(movimentoFundo);
 		return null;
 	}

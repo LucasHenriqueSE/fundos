@@ -27,12 +27,13 @@
 					<td>${movimento.valorMovimentoFundo}</td>
 					<td>${movimento.qtdMovimentoFundo}</td>
 					<td>${movimento.valorCotaMovimentoFundo}</td>
-					<td>${movimento.dataMovimentoFundo }</td>
+					<td><fmt:formatDate type="both" pattern="dd/MM/yyyy HH:mm:ss" dateStyle="short" timeStyle="medium" value="${movimento.dataMovimentoFundo}"/></td>
 					<td><a href="/fundos/movimentos/${movimento.fundo.id}/movimento/${movimento.id}">Editar</a></td>
 				</tr>
 			</c:forEach>
 
 		</table>
 	</c:if>
+	<a href="/fundos/movimentos/cadastrar/${idFundo}">Novo Movimento</a>
 </body>
 </html>

@@ -3,15 +3,66 @@
 	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions>
-	<definition name="index" template="/pages/index.jsp" />
-	<definition name="nova-cota" template="/pages/cotas/nova-cota.jsp" />
-	<definition name="novo-fundo" template="/pages/fundos/novo-fundo.jsp" />
-	<definition name="listar-cota" template="/pages/cotas/listar-cota.jsp" />
-	<definition name="listar-movimento" template="/pages/movimento-fundos/listar-movimento-fundo.jsp" />
-	<definition name="editar-movimento-fundo" template="/pages/movimento-fundos/editar-movimento-fundo.jsp" />
-	<definition name="editar-cota" template="/pages/cotas/editar-cota.jsp"/>
-	<definition name="editar-fundo" template="/pages/fundos/editar-fundo.jsp"/>
-	<definition name="novo-tipo-fundo" template="/pages/tipo-fundos/novo-tipo-fundo.jsp" />
-	<definition name="novo-movimento-fundo" template="/pages/movimento-fundos/novo-movimento-fundo.jsp" />
-	<definition name="novo-tipo-movimento-fundos" template="/pages/tipo-movimento-fundos/novo-tipo-movimento-fundos.jsp" />
+	<!-- TEMPLATE PÚBLICO -->
+    <definition name="main" template="/pages/templates/conteudo.jsp">
+		<put-attribute name="cabecalho" value="/pages/templates/cabecalho.jsp"/>
+		<put-attribute name="rodape" value="/pages/templates/rodape.jsp"/>
+	</definition>
+
+	<!-- Fundo -->
+	<definition name="listar-fundo" extends="main">
+		<put-attribute name="conteudo" value="/pages/fundos/listar-fundo.jsp" />
+	</definition>
+	
+	<definition name="novo-fundo" extends="main">
+		<put-attribute name="conteudo" value="/pages/fundos/novo-fundo.jsp" />
+	</definition>
+	
+	<definition name="editar-fundo" extends="main">
+		<put-attribute name="conteudo" value="/pages/fundos/editar-fundo.jsp" />
+	</definition>
+	
+	<!-- Cota -->
+	<definition name="listar-cota" extends="main">
+		<put-attribute name="conteudo" value="/pages/cotas/listar-cota.jsp" />
+	</definition>
+	
+	<definition name="nova-cota" extends="main">
+		<put-attribute name="conteudo" value="/pages/cotas/nova-cota.jsp" />
+	</definition>
+	
+	<definition name="editar-cota" extends="main">
+		<put-attribute name="conteudo" value="/pages/cotas/editar-cota.jsp" />
+	</definition>
+	
+	<!-- Movimento -->
+	<definition name="listar-movimento" extends="main">
+		<put-attribute name="conteudo" value="/pages/movimento-fundos/listar-movimento-fundo.jsp" />
+	</definition>
+	
+	<definition name="novo-movimento-fundo" extends="main">
+		<put-attribute name="conteudo" value="/pages/movimento-fundos/novo-movimento-fundo.jsp" />
+	</definition>
+	
+	<definition name="editar-movimento-fundo" extends="main">
+		<put-attribute name="conteudo" value="/pages/movimento-fundos/editar-movimento-fundo.jsp" />
+	</definition>
+
+	<!-- Tipos de Fundo -->
+	<definition name="listar-tipo-fundo" extends="main">
+		<put-attribute name="conteudo" value="/pages/tipo-fundos/listar-tipo-fundo.jsp" />
+	</definition>
+	
+	<definition name="novo-tipo-fundo" extends="main">
+		<put-attribute name="conteudo" value="/pages/tipo-fundos/novo-tipo-fundo.jsp" />
+	</definition>
+	
+	<!-- Tipos de Movimento -->
+	<definition name="novo-tipo-movimento-fundos" extends="main">
+		<put-attribute name="conteudo" value="/pages/tipo-movimento-fundos/novo-tipo-movimento-fundos.jsp" />
+	</definition>
+	
+	<definition name="listar-tipo-de-movimento" extends="main">
+		<put-attribute name="conteudo" value="/pages/tipo-movimento-fundos/listar-tipo-de-movimento.jsp" />
+	</definition>
 </tiles-definitions>

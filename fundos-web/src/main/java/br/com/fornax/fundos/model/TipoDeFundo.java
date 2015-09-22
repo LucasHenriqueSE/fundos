@@ -30,6 +30,10 @@ public class TipoDeFundo {
 	public Integer getId() {
 		return id;
 	}
+	
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getNomeTipoFundo() {
 		return nomeTipoFundo;

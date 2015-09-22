@@ -2,24 +2,56 @@ package br.com.fornax.fundos.dao;
 
 import java.util.List;
 
-import br.com.fornax.fundos.model.Cota;
-import br.com.fornax.fundos.model.MovimentoFundo;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
-public interface GenericDAO {
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+@Repository
+@Transactional(propagation = Propagation.MANDATORY)
+public abstract class GenericDAO {
+
+	@PersistenceContext
+	private EntityManager em;
+
+	/**Insere o objeto no banco de dados
+	 * @param object
+	 */
+	public void inserir(Object object) {
+		em.persist(object);
+	}
+
+	/**Edita o objeto no banco de dados
+	 * @param object
+	 */
+	public void editar(Object object) {
+		em.merge(object);
+	}
+
+	/**Exclui o objeto do banco de dados
+	 * @param object
+	 */
+	public void excluir(Object object) {
+		Object entity = em.merge(object);
+		em.remove(entity);
+
+	}
+
+	/**Lista todos os objetos do banco de dados de acordo com a query passada.
+	 * @param queryString
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Object> listarTodos(String queryString) {
+		Query query = em.createQuery(queryString);
+		return query.getResultList();
+	}
 	
-	void inserir(Object classe);
+	public Object listarPorId(Object object, int id) {
+		return em.find(object.getClass(), id);
+	}
 
-	void editar(Object classe);
-
-	void excluir(Object classe);
-
-	List<Object> listarTodos(String query);
-
-	List<Cota> listarCotasPorFundo(int id);
-
-	Cota listarCotaPorId(int id);
-
-	List<MovimentoFundo> listarMovimentosPorFundo(int id);
-
-	MovimentoFundo buscarMovimentoPorIdFundoEIdMov(int idFundo, int idMov);
 }

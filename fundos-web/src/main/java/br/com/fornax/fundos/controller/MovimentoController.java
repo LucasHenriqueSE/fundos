@@ -29,13 +29,10 @@ public class MovimentoController {
 
 	@RequestMapping("cadastrar/{idFundo}")
 	public ModelAndView cadastrarNovoMovimentoFundo(@PathVariable("idFundo") int idFundo) {
-		List<Object> listarTipos;
 		mav = new ModelAndView();
 		
-		listarTipos = tipoDeMovimentoFundoService.listarTodos();
-		
 		mav.setViewName("novo-movimento-fundo");
-		mav.addObject("tipos", listarTipos);
+		mav.addObject("tipos", tipoDeMovimentoFundoService.listarTodos());
 		mav.addObject("idFundo", idFundo);
 		return mav;
 	}
@@ -48,7 +45,8 @@ public class MovimentoController {
 	}
 	
 	@RequestMapping("alterar")
-	public String alterar(){
+	public String alterar(MovimentoFundo movimentoFundo, String dataCadastro){
+		movimentoFundoService.editar(movimentoFundo, dataCadastro);
 		return "editar-movimento-fundo";
 	}
 	
@@ -75,5 +73,14 @@ public class MovimentoController {
 		tipoDeMovimentoFundoService.inserir(novo);
 
 		return "novo-tipo-movimento-fundos";
+	}
+	
+	@RequestMapping("tipo-movimento")
+	public ModelAndView listarTipoDeMovimentos(){
+		mav = new ModelAndView();
+		mav.addObject("tipos", tipoDeMovimentoFundoService.listarTodos());
+		mav.setViewName("listar-tipo-de-movimento");
+		
+		return mav;
 	}
 }
