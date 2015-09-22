@@ -21,6 +21,7 @@
 	<definition name="editar-fundo" extends="main">
 		<put-attribute name="conteudo" value="/pages/fundos/editar-fundo.jsp" />
 	</definition>
+	
 	<!-- Cota -->
 	<definition name="listar-cota" extends="main">
 		<put-attribute name="conteudo" value="/pages/cotas/listar-cota.jsp" />
@@ -59,5 +60,9 @@
 	<!-- Tipos de Movimento -->
 	<definition name="novo-tipo-movimento-fundos" extends="main">
 		<put-attribute name="conteudo" value="/pages/tipo-movimento-fundos/novo-tipo-movimento-fundos.jsp" />
+	</definition>
+	
+	<definition name="listar-tipo-de-movimento" extends="main">
+		<put-attribute name="conteudo" value="/pages/tipo-movimento-fundos/listar-tipo-de-movimento.jsp" />
 	</definition>
 </tiles-definitions>
