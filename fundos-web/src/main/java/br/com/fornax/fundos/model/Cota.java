@@ -43,6 +43,7 @@ public class Cota {
 		this.id = id;
 	}
 
+
 	public Float getValor() {
 		return valor;
 	}
