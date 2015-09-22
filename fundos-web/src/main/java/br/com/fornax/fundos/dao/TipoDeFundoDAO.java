@@ -13,5 +13,4 @@ public interface TipoDeFundoDAO {
 	public List<Object> listarTodos(String queryString);
 
 	public Object listarPorId(Object object, int id);
-
 }

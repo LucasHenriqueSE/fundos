@@ -46,4 +46,9 @@ public class TipoDeFundoServiceImpl implements TipoDeFundoService {
 	public List<Object> listarTodos() {
 		return dao.listarTodos("select t from TipoDeFundo t"); 
 	}
+	
+	@Override
+	public TipoDeFundo listarPorId(int id) {
+		return (TipoDeFundo) dao.listarPorId(new TipoDeFundo(), id);
+	}
 }

@@ -21,8 +21,8 @@ public class CotaDAOImpl extends GenericDAO implements CotaDAO {
 	@PersistenceContext
 	private EntityManager em;
 
-	@SuppressWarnings("unchecked")
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<Cota> listarCotasPorFundo(int id) {
 		Query query = em.createQuery("select c from Cota c where c.fundo.id = :idFundo");
 		query.setParameter("idFundo", id);

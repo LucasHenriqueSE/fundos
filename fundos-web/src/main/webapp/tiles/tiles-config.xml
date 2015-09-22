@@ -57,6 +57,10 @@
 		<put-attribute name="conteudo" value="/pages/tipo-fundos/novo-tipo-fundo.jsp" />
 	</definition>
 	
+	<definition name="editar-tipo-fundo" extends="main">
+		<put-attribute name="conteudo" value="/pages/tipo-fundos/editar-tipo-fundo.jsp" />
+	</definition>
+	
 	<!-- Tipos de Movimento -->
 	<definition name="novo-tipo-movimento-fundos" extends="main">
 		<put-attribute name="conteudo" value="/pages/tipo-movimento-fundos/novo-tipo-movimento-fundos.jsp" />

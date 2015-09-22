@@ -1,7 +1,5 @@
 package br.com.fornax.fundos.controller;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -40,7 +38,6 @@ public class MovimentoController {
 	@RequestMapping(value = "salvar", method = RequestMethod.POST)
 	public String salvarNovoMovimentoFundo(MovimentoFundo novo, String dataCadastro) {
 		movimentoFundoService.inserir(novo, dataCadastro);
-
 		return "novo-movimento-fundo";
 	}
 	
@@ -57,7 +54,6 @@ public class MovimentoController {
 		
 		movimentoFundo = movimentoFundoService.buscarMovimentoPorIdFundoEIdMov(idFundo, idMovimento);
 		
-		
 		mav.setViewName("editar-movimento-fundo");
 		mav.addObject("movimentoFundo", movimentoFundo);
 		return mav;
@@ -71,7 +67,6 @@ public class MovimentoController {
 	@RequestMapping(value = "tipo-movimento/salvar", method = RequestMethod.POST)
 	public String salvarTipoMovimentoFundos(TipoDeMovimentoFundo novo) {
 		tipoDeMovimentoFundoService.inserir(novo);
-
 		return "novo-tipo-movimento-fundos";
 	}
 	
@@ -80,7 +75,6 @@ public class MovimentoController {
 		mav = new ModelAndView();
 		mav.addObject("tipos", tipoDeMovimentoFundoService.listarTodos());
 		mav.setViewName("listar-tipo-de-movimento");
-		
 		return mav;
 	}
 }

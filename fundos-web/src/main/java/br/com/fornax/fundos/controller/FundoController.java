@@ -31,8 +31,7 @@ public class FundoController {
 
 	private ModelAndView mav = new ModelAndView();
 	
-	
-	/**Redireciona para a página index listando os fundos cadastrados no sistema.
+	/**Redireciona para a página listar-fundo listando os fundos cadastrados no sistema.
 	 * @return
 	 */
 	@RequestMapping("/")
@@ -40,7 +39,6 @@ public class FundoController {
 		this.mav.clear();
 		this.mav.setViewName("listar-fundo");
 		this.mav.addObject("fundos", fundoService.listarTodos());
-		
 		return mav;
 	}
 

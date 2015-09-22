@@ -21,8 +21,8 @@ public class MovimentoFundoDAOImpl extends GenericDAO implements MovimentoFundoD
 	@PersistenceContext
 	private EntityManager em;
 	
-	@SuppressWarnings("unchecked")
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<MovimentoFundo> listarMovimentosPorFundo(int id) {
 		Query query = em.createQuery("select m from MovimentoFundo m where m.fundo.id = :idFundo");
 		query.setParameter("idFundo", id);

@@ -21,7 +21,7 @@
 					<tr>
 						<td>${tipo.id}</td>
 						<td>${tipo.nomeTipoFundo}</td>
-						<td><a href="/tipo-de-fundo/${tipo.id}/editar">Editar</a></td>
+						<td><a href="/fundos/tipo-de-fundo/${tipo.id}/editar">Editar</a></td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -30,6 +30,6 @@
 			<h1>Nenhum tipo Cadastrado</h1>
 		</c:otherwise>
 	</c:choose>
-	<a href="cadastrar">Novo Tipo de Fundo</a>
+	<a href="tipo-de-fundo/cadastrar">Novo Tipo de Fundo</a>
 </body>
 </html>
