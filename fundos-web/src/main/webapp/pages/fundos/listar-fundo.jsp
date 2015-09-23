@@ -45,7 +45,7 @@
 		</c:choose>
 		<a href="cadastrar" class="btn btn-primary" role="button">Novo Fundo</a>
 		<a href="tipo-de-fundo" class="btn btn-primary" role="button">Tipos de Fundo</a>
-		<a href="movimentos/tipo-movimento" class="btn btn-primary" role="button">Tipos de Movimento</a>
+		<a href="tipo-movimento" class="btn btn-primary" role="button">Tipos de Movimento</a>
 	</div>
 </body>
 </html>

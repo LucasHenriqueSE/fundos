@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.fornax.fundos.model.MovimentoFundo;
-import br.com.fornax.fundos.model.TipoDeMovimentoFundo;
 import br.com.fornax.fundos.services.MovimentoFundoService;
 import br.com.fornax.fundos.services.TipoDeMovimentoFundoService;
 
@@ -56,25 +55,6 @@ public class MovimentoController {
 		
 		mav.setViewName("editar-movimento-fundo");
 		mav.addObject("movimentoFundo", movimentoFundo);
-		return mav;
-	}
-
-	@RequestMapping("tipo-movimento/cadastrar")
-	public String cadastrarTipoMovimentoFundos() {
-		return "novo-tipo-movimento-fundos";
-	}
-
-	@RequestMapping(value = "tipo-movimento/salvar", method = RequestMethod.POST)
-	public String salvarTipoMovimentoFundos(TipoDeMovimentoFundo novo) {
-		tipoDeMovimentoFundoService.inserir(novo);
-		return "novo-tipo-movimento-fundos";
-	}
-	
-	@RequestMapping("tipo-movimento")
-	public ModelAndView listarTipoDeMovimentos(){
-		mav = new ModelAndView();
-		mav.addObject("tipos", tipoDeMovimentoFundoService.listarTodos());
-		mav.setViewName("listar-tipo-de-movimento");
 		return mav;
 	}
 }

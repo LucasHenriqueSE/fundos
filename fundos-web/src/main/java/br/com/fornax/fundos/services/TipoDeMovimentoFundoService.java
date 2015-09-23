@@ -13,4 +13,6 @@ public interface TipoDeMovimentoFundoService {
 	Boolean excluir(TipoDeMovimentoFundo tipoDeMovimentoFundo);
 
 	List<Object> listarTodos();
+	
+	TipoDeMovimentoFundo listarPorId(int id);
 }

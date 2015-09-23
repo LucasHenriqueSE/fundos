@@ -69,4 +69,8 @@
 	<definition name="listar-tipo-de-movimento" extends="main">
 		<put-attribute name="conteudo" value="/pages/tipo-movimento-fundos/listar-tipo-de-movimento.jsp" />
 	</definition>
+	
+	<definition name="editar-tipo-movimento-fundos" extends="main">
+		<put-attribute name="conteudo" value="/pages/tipo-movimento-fundos/editar-tipo-movimento-fundos.jsp" />
+	</definition>
 </tiles-definitions>

@@ -48,7 +48,7 @@ public class TipoFundoController {
 		return "redirect:/tipo-de-fundo";
 	}
 
-	@RequestMapping(value = "/tipo-de-fundo/{tipo.id}/editar")
+	@RequestMapping("/tipo-de-fundo/{tipo.id}/editar")
 	public ModelAndView editarTipoDeFundo(@PathVariable("tipo.id") int id) {
 		mav = new ModelAndView();
 		TipoDeFundo tipoDeFundo = tipoDeFundoService.listarPorId(id);
@@ -57,7 +57,7 @@ public class TipoFundoController {
 		return mav;
 	}
 
-	@RequestMapping(value = "tipo-de-fundo/alterar")
+	@RequestMapping("tipo-de-fundo/alterar")
 	public String alterarTipoDeFundo(TipoDeFundo tipoDeFundo) {
 		tipoDeFundoService.editar(tipoDeFundo);
 		return "redirect:/tipo-de-fundo";

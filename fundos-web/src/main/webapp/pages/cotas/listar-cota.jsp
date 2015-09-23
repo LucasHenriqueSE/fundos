@@ -17,31 +17,28 @@
 </head>
 <body>
 	<form id="form1" name="form1" action="" method="POST"
-		onsubmit='return event.keyCode!=13'>
-		Fundo: <select id="fundo" name="fundo.id" onchange='listarCotas()'>
-			<option value="">Selecione...</option>
-			<c:forEach var="fundo" items="${fundos}">
-				<option value="${fundo.id}">${fundo.nome}</option>
-			</c:forEach>
-		</select>
-
-	</form>
-	<c:if test="${cotas != null}">
-		<table>
-			<tr>
-				<td>Id</td>
-				<td>Valor</td>
-				<td>Ações</td>
-			</tr>
-			<c:forEach var="cota" items="${cotas}">
+		onsubmit='return event.keyCode!=13'></form>
+	<c:choose>
+		<c:when test="${cotas != null}">
+			<table>
 				<tr>
-					<td>${cota.id}</td>
-					<td>${cota.valor}</td>
-					<td><a href="/fundos/cota/editar/${cota.id}">Editar</a></td>
+					<td>Id</td>
+					<td>Valor</td>
+					<td>Ações</td>
 				</tr>
-			</c:forEach>
-
-		</table>
-	</c:if>
+				<c:forEach var="cota" items="${cotas}">
+					<tr>
+						<td>${cota.id}</td>
+						<td>${cota.valor}</td>
+						<td><a href="/fundos/cota/${cota.id}/editar">Editar</a></td>
+					</tr>
+				</c:forEach>
+			</table>
+		</c:when>
+		<c:otherwise>
+			<h1>Nenhuma cota Cadastrada</h1>
+		</c:otherwise>
+	</c:choose>
+	<a href="cota/cadastrar">Cadastrar nova Cota</a>
 </body>
 </html>

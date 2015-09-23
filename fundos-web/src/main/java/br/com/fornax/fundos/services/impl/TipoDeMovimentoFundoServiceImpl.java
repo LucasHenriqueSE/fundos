@@ -46,4 +46,9 @@ public class TipoDeMovimentoFundoServiceImpl implements TipoDeMovimentoFundoServ
 	public List<Object> listarTodos() {
 		return dao.listarTodos("select t from TipoDeMovimentoFundo t");
 	}
+
+	@Override
+	public TipoDeMovimentoFundo listarPorId(int id) {
+		return (TipoDeMovimentoFundo) dao.listarPorId(new TipoDeMovimentoFundo(), id);
+	}
 }
