@@ -48,7 +48,7 @@ public class TipoMovimentoController {
 		return mav;
 	}
 	
-	@RequestMapping("alterar")
+	@RequestMapping("tipo-movimento/alterar")
 	public String alterarTipoMovimentoFundos(TipoDeMovimentoFundo tipoDeMovimentoFundo){
 		tipoDeMovimentoFundoService.editar(tipoDeMovimentoFundo);
 		return "redirect:/tipo-movimento";
