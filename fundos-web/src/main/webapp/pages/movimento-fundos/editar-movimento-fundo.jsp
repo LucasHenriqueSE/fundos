@@ -54,9 +54,18 @@
 			value="${movimentoFundo.valorCotaMovimentoFundo}" /><br /> Data: <input
 			name="dataCadastro"
 			value="<fmt:formatDate type="both" pattern="dd/MM/yyyy HH:mm:ss" dateStyle="short" timeStyle="medium" value="${movimentoFundo.dataMovimentoFundo}" />" />
-		Tipo Movimento: <select id="tipo" name="tipoMovimento.id">
-			<option selected="selected">${movimentoFundo.tipoMovimento.nomeTipoMovimentoFundo}</option>
-		</select><br />
+		Tipo: <select id="tipo" name="tipoMovimento.id">
+			<c:forEach var="tipo" items="${tipos}">
+			<c:choose>
+				<c:when test="${movimentoFundo.tipoMovimento.id == tipo.id}">
+					<option value="${tipo.id}" selected="selected">${tipo.nomeTipoMovimentoFundo}</option>
+				</c:when>
+				<c:otherwise>
+					<option value="${tipo.id}">${tipo.nomeTipoMovimentoFundo}</option>
+				</c:otherwise>
+			</c:choose>
+			</c:forEach>
+		</select><br>
 		<input type="submit" value="Alterar" onclick='valida()' />
 	</form>
 </body>

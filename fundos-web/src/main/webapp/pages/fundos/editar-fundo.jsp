@@ -30,7 +30,6 @@
 		<input type="hidden" name="id" value="${fundo.id}"/>
 		Nome: <input name="nome" value="${fundo.nome}" pattern="[a-z\s]+$" autofocus="autofocus" />
 		Tipo de Fundo: <select id="tipoFundo" name="tipoFundo.id">
-			<option value="">Selecione...</option>
 			<c:forEach var="tipo" items="${tipos}">
 			<c:choose>
 				<c:when test="${fundo.tipoFundo.id == tipo.id}">

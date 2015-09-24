@@ -59,6 +59,7 @@ public class CotaController {
 	@RequestMapping("alterar")
 	public String alterarCota(Cota cota, String dataCadastro){
 		cotaService.editar(cota, dataCadastro);
+		
 		return "editar-cota";
 	}
 }

@@ -54,6 +54,7 @@ public class MovimentoController {
 		movimentoFundo = movimentoFundoService.buscarMovimentoPorIdFundoEIdMov(idFundo, idMovimento);
 		
 		mav.setViewName("editar-movimento-fundo");
+		mav.addObject("tipos", tipoDeMovimentoFundoService.listarTodos());
 		mav.addObject("movimentoFundo", movimentoFundo);
 		return mav;
 	}

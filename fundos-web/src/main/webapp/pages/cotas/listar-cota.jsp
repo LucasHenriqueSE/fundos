@@ -39,6 +39,6 @@
 			<h1>Nenhuma cota Cadastrada</h1>
 		</c:otherwise>
 	</c:choose>
-	<a href="cota/cadastrar">Cadastrar nova Cota</a>
+	<a href="/fundos/cota/cadastrar">Cadastrar nova Cota</a>
 </body>
 </html>

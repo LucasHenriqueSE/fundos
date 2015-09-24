@@ -37,7 +37,6 @@ public abstract class GenericDAO {
 	public void excluir(Object object) {
 		Object entity = em.merge(object);
 		em.remove(entity);
-
 	}
 
 	/**Lista todos os objetos do banco de dados de acordo com a query passada.
