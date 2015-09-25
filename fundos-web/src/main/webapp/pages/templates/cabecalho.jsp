@@ -26,7 +26,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Sistema Fundos</a>
+                <a class="navbar-brand" href="/fundos">Sistema Fundos</a>
             </div>
         </div>
         <!-- /.container -->

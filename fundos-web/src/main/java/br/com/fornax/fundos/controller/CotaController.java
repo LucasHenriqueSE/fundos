@@ -62,4 +62,22 @@ public class CotaController {
 		
 		return "editar-cota";
 	}
+	
+	@RequestMapping("{idCota}/excluir")
+	public ModelAndView excluirCota(@PathVariable("idCota") int idCota){
+		mav = new ModelAndView();
+		Cota cota = cotaService.buscarCotaPorId(idCota);
+
+		mav.setViewName("editar-cota");
+		mav.addObject("cota", cota);
+
+		return mav;
+	}
+	
+	@RequestMapping("deletar")
+	public String deletarCota(Cota cota){
+		cotaService.excluir(cota);
+		
+		return "listar-cota";
+	}
 }

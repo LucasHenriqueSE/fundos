@@ -2,8 +2,6 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <head>
 <meta charset=UTF-8>
 <title>Cadastro Tipo de Movimento Fundos</title>
@@ -26,7 +24,7 @@
 		onsubmit='return event.keyCode!=13'>
 		<input type="hidden" name="id" value="${tipo.id}" />
 		Nome: <input name="nomeTipoMovimentoFundo" value="${tipo.nomeTipoMovimentoFundo}" autofocus="autofocus"/> <input
-			type="button" value="Cadastrar" onclick='validar()' />
+			type="button" value="Alterar" onclick='validar()' />
 	</form>
 </body>
 </html>

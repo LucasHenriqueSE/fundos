@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <head>
 <meta charset=UTF-8 />
 <title>Alterar Cota</title>
@@ -24,13 +23,15 @@
 				<tr>
 					<td>Id</td>
 					<td>Valor</td>
-					<td>Ações</td>
+					<td>Ação 1</td>
+					<td>Ação 2</td>
 				</tr>
 				<c:forEach var="cota" items="${cotas}">
 					<tr>
 						<td>${cota.id}</td>
 						<td>${cota.valor}</td>
 						<td><a href="/fundos/cota/${cota.id}/editar">Editar</a></td>
+						<td><a href="/fundos/cota/${cota.id}/excluir">Excluir</a></td>
 					</tr>
 				</c:forEach>
 			</table>
