@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.fornax.fundos.model.Cota;
+import br.com.fornax.fundos.model.Fundo;
 import br.com.fornax.fundos.services.CotaService;
 import br.com.fornax.fundos.services.FundoService;
 
@@ -20,7 +21,7 @@ public class CotaController {
 
 	@Inject
 	private CotaService cotaService;
-	
+
 	@Inject
 	private FundoService fundoService;
 
@@ -44,9 +45,9 @@ public class CotaController {
 
 		return "nova-cota";
 	}
-	
+
 	@RequestMapping("{idCota}/editar")
-	public ModelAndView editarCota(@PathVariable("idCota") int idCota){
+	public ModelAndView editarCota(@PathVariable("idCota") int idCota) {
 		mav = new ModelAndView();
 		Cota cota = cotaService.buscarCotaPorId(idCota);
 
@@ -55,29 +56,18 @@ public class CotaController {
 
 		return mav;
 	}
-	
+
 	@RequestMapping("alterar")
-	public String alterarCota(Cota cota, String dataCadastro){
+	public String alterarCota(Cota cota, String dataCadastro) {
 		cotaService.editar(cota, dataCadastro);
-		
+
 		return "editar-cota";
 	}
-	
-	@RequestMapping("{idCota}/excluir")
-	public ModelAndView excluirCota(@PathVariable("idCota") int idCota){
-		mav = new ModelAndView();
-		Cota cota = cotaService.buscarCotaPorId(idCota);
 
-		mav.setViewName("editar-cota");
-		mav.addObject("cota", cota);
-
-		return mav;
-	}
-	
-	@RequestMapping("deletar")
-	public String deletarCota(Cota cota){
+	@RequestMapping("{id}/excluir")
+	public String excluirCota(Cota cota, Fundo idFundo) {
 		cotaService.excluir(cota);
-		
-		return "listar-cota";
+
+		return "redirect:/fundo/" + idFundo.getId() + "/cotas";
 	}
 }

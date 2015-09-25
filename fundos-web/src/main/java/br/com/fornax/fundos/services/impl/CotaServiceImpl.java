@@ -59,8 +59,13 @@ public class CotaServiceImpl implements CotaService {
 
 	@Override
 	public Boolean excluir(Cota cota) {
-		dao.excluir(cota);
-		return null;
+		try {
+			dao.excluir(cota);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
