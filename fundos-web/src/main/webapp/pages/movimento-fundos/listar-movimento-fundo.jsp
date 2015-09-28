@@ -29,6 +29,7 @@
 					<td>${movimento.valorCotaMovimentoFundo}</td>
 					<td><fmt:formatDate type="both" pattern="dd/MM/yyyy HH:mm:ss" dateStyle="short" timeStyle="medium" value="${movimento.dataMovimentoFundo}"/></td>
 					<td><a href="/fundos/movimentos/${movimento.fundo.id}/movimento/${movimento.id}">Editar</a></td>
+					<td><a href="/fundos/movimentos/${movimento.fundo.id}/movimento/${movimento.id}/excluir">Excluir</a></td>
 				</tr>
 			</c:forEach>
 

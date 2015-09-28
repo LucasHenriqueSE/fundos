@@ -58,4 +58,12 @@ public class MovimentoController {
 		mav.addObject("movimentoFundo", movimentoFundo);
 		return mav;
 	}
+	
+	@RequestMapping("{idFundo}/movimento/{idMovimento}/excluir")
+	public String excluirMovimento(@PathVariable("idMovimento") int idMovimento, @PathVariable("idFundo") int idFundo){
+		MovimentoFundo movimento = movimentoFundoService.buscarMovimentoPorIdFundoEIdMov(idFundo, idMovimento);
+		movimentoFundoService.listarPorId(movimento, idMovimento);
+		movimentoFundoService.excluir(movimento);
+		return "redirect:/fundo/{idFundo}/movimentos";
+	}
 }

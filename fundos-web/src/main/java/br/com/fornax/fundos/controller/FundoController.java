@@ -119,8 +119,8 @@ public class FundoController {
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping("fundo/{id}/excluir")
-	public String excluir(@PathVariable("id") int id){
+	@RequestMapping("fundo/{idFundo}/excluir")
+	public String excluir(@PathVariable("idFundo") int id){
 		Fundo fundo = fundoService.listarPorId(id);
 		fundoService.excluir(fundo);
 		return "redirect:/";

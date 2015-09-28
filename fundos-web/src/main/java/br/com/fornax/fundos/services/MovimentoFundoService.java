@@ -16,5 +16,7 @@ public interface MovimentoFundoService {
 
 	List<MovimentoFundo> listarMovimentosPorFundo(int idFundo);
 	
-	MovimentoFundo buscarMovimentoPorIdFundoEIdMov(int idFundo, int idMov);
+	MovimentoFundo buscarMovimentoPorIdFundoEIdMov(int idFundo, int idMovimento);
+	
+	Object listarPorId(Object object, int idMovimento);
 }

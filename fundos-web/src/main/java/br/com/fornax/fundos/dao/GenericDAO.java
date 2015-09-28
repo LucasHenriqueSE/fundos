@@ -49,6 +49,12 @@ public abstract class GenericDAO {
 		return query.getResultList();
 	}
 	
+	
+	/**Faz uma pesquisa no banco de dados de acordo com o id passado.
+	 * @param object
+	 * @param id
+	 * @return
+	 */
 	public Object listarPorId(Object object, int id) {
 		return em.find(object.getClass(), id);
 	}

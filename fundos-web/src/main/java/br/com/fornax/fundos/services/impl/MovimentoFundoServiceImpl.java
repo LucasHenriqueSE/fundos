@@ -79,4 +79,9 @@ public class MovimentoFundoServiceImpl implements MovimentoFundoService {
 	public MovimentoFundo buscarMovimentoPorIdFundoEIdMov(int idFundo, int idMov) {
 		return dao.buscarMovimentoPorIdFundoEIdMov(idFundo, idMov);
 	}
+
+	@Override
+	public Object listarPorId(Object object, int idMovimento) {
+		return dao.listarPorId(object, idMovimento);
+	}
 }
