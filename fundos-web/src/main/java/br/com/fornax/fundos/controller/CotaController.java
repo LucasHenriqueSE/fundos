@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.fornax.fundos.model.Cota;
-import br.com.fornax.fundos.model.Fundo;
 import br.com.fornax.fundos.services.CotaService;
 import br.com.fornax.fundos.services.FundoService;
 
@@ -64,10 +63,11 @@ public class CotaController {
 		return "editar-cota";
 	}
 
-	@RequestMapping("{id}/excluir")
-	public String excluirCota(Cota cota, Fundo idFundo) {
+	@RequestMapping("{id}/deletar")
+	public String deletarCota(@PathVariable("id") int idCota) {
+		Cota cota = cotaService.buscarCotaPorId(idCota);
 		cotaService.excluir(cota);
 
-		return "redirect:/fundo/" + idFundo.getId() + "/cotas";
+		return "redirect:/fundo/" + cota.getFundo().getId() + "/cotas";
 	}
 }

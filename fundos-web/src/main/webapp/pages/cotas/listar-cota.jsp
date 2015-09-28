@@ -31,7 +31,7 @@
 						<td>${cota.id}</td>
 						<td>${cota.valor}</td>
 						<td><a href="/fundos/cota/${cota.id}/editar">Editar</a></td>
-						<td><a href="/fundos/cota/${cota.id}/excluir">Excluir</a></td>
+						<td><a href="/fundos/cota/${cota.id}/deletar">Excluir</a></td>
 					</tr>
 				</c:forEach>
 			</table>
