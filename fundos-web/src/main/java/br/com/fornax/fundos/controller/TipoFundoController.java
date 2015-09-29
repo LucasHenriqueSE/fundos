@@ -62,5 +62,12 @@ public class TipoFundoController {
 		tipoDeFundoService.editar(tipoDeFundo);
 		return "redirect:/tipo-de-fundo";
 	}
+	
+	@RequestMapping("tipo-de-fundo/{idTipo}/excluir")
+	public String excluirTipoDeFundo(@PathVariable("idTipo") int idTipo){
+		TipoDeFundo tipoDeFundo = tipoDeFundoService.listarPorId(idTipo);
+		tipoDeFundoService.excluir(tipoDeFundo);
+		return "redirect:tipo-de-fundo";
+	}
 
 }

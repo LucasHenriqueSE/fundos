@@ -14,13 +14,15 @@
 				<tr>
 					<td>Id</td>
 					<td>Nome</td>
-					<td>Ações</td>
+					<td>Ação 1</td>
+					<td>Ação 2</td>
 				</tr>
 				<c:forEach var="tipo" items="${tipos}">
 					<tr>
 						<td>${tipo.id}</td>
 						<td>${tipo.nomeTipoFundo}</td>
 						<td><a href="/fundos/tipo-de-fundo/${tipo.id}/editar">Editar</a></td>
+						<td><a href="/fundos/tipo-de-fundo/${tipo.id}/excluir">Excluir</a></td>
 					</tr>
 				</c:forEach>
 			</table>
