@@ -25,8 +25,8 @@
 							<tr>
 								<td>${tipo.id}</td>
 								<td>${tipo.nomeTipoMovimentoFundo}</td>
-								<td><a href="tipo-movimento/${tipo.id}/editar">Editar</a></td>
-								<td><a href="tipo-movimento/${tipo.id}/excluir">Excluir</a></td>
+								<td><a href="/fundos/tipo-movimento/${tipo.id}/editar">Editar</a></td>
+								<td><a href="/fundos/tipo-movimento/${tipo.id}/excluir">Excluir</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

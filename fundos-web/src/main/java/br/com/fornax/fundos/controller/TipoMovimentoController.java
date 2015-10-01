@@ -37,20 +37,27 @@ public class TipoMovimentoController {
 		tipoDeMovimentoFundoService.inserir(novo);
 		return "novo-tipo-movimento-fundos";
 	}
-	
+
 	@RequestMapping("tipo-movimento/{id}/editar")
-	public ModelAndView editarTipoMovimentoFundos(@PathVariable("id") int id){
+	public ModelAndView editarTipoMovimentoFundos(@PathVariable("id") int id) {
 		mav = new ModelAndView();
 		TipoDeMovimentoFundo tipoDeMovimentoFundo = tipoDeMovimentoFundoService.listarPorId(id);
-		
+
 		mav.addObject("tipo", tipoDeMovimentoFundo);
 		mav.setViewName("editar-tipo-movimento-fundos");
 		return mav;
 	}
-	
+
 	@RequestMapping("tipo-movimento/alterar")
-	public String alterarTipoMovimentoFundos(TipoDeMovimentoFundo tipoDeMovimentoFundo){
+	public String alterarTipoMovimentoFundos(TipoDeMovimentoFundo tipoDeMovimentoFundo) {
 		tipoDeMovimentoFundoService.editar(tipoDeMovimentoFundo);
+		return "redirect:/tipo-movimento";
+	}
+
+	@RequestMapping("tipo-movimento/{idTipo}/excluir")
+	public String excluirTipoMovimento(@PathVariable("idTipo") int idTipo) {
+		TipoDeMovimentoFundo tipoDeMovimentoFundo = tipoDeMovimentoFundoService.listarPorId(idTipo);
+		tipoDeMovimentoFundoService.excluir(tipoDeMovimentoFundo);
 		return "redirect:/tipo-movimento";
 	}
 }

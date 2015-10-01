@@ -1,6 +1,7 @@
 package br.com.fornax.fundos.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,18 +20,24 @@ public class TipoFundoController {
 
 	private ModelAndView mav = new ModelAndView();
 
-	/**Redireciona para a página que lista os tipos de fundo cadastrados no
+	/**
+	 * Redireciona para a página que lista os tipos de fundo cadastrados no
+	 * 
 	 * @return
 	 */
-	@RequestMapping("tipo-de-fundo")
-	public ModelAndView tiposDeFundo() {
+	@RequestMapping(value = "tipo-de-fundo")
+	public ModelAndView tiposDeFundo(HttpServletRequest request) {
 		this.mav.clear();
 		this.mav.setViewName("listar-tipo-fundo");
 		this.mav.addObject("tipos", tipoDeFundoService.listarTodos());
+		this.mav.addObject("excluiu", request.getSession().getAttribute("excluiu"));
+		request.getSession().invalidate();
 		return mav;
 	}
 
-	/**Redireciona para a página de cadastro de tipos de fundo
+	/**
+	 * Redireciona para a página de cadastro de tipos de fundo
+	 * 
 	 * @return
 	 */
 	@RequestMapping("tipo-de-fundo/cadastrar")
@@ -38,7 +45,9 @@ public class TipoFundoController {
 		return "novo-tipo-fundo";
 	}
 
-	/**Salva o tipo de fundo no banco de dados.
+	/**
+	 * Salva o tipo de fundo no banco de dados.
+	 * 
 	 * @param novo
 	 * @return
 	 */
@@ -62,12 +71,13 @@ public class TipoFundoController {
 		tipoDeFundoService.editar(tipoDeFundo);
 		return "redirect:/tipo-de-fundo";
 	}
-	
+
 	@RequestMapping("tipo-de-fundo/{idTipo}/excluir")
-	public String excluirTipoDeFundo(@PathVariable("idTipo") int idTipo){
+	public String excluirTipoDeFundo(@PathVariable("idTipo") int idTipo, HttpServletRequest request) {
 		TipoDeFundo tipoDeFundo = tipoDeFundoService.listarPorId(idTipo);
-		tipoDeFundoService.excluir(tipoDeFundo);
-		return "redirect:tipo-de-fundo";
+		Boolean excluiu = tipoDeFundoService.excluir(tipoDeFundo);
+		request.getSession().setAttribute("excluiu", excluiu);
+		return "redirect:/tipo-de-fundo";
 	}
 
 }

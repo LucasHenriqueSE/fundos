@@ -8,6 +8,17 @@
 <title>Sistema Fundos - Tipos de Fundos</title>
 </head>
 <body>
+	<c:if test="${excluiu != null}">
+		<c:choose>
+			<c:when test="${excluiu == true}">
+				<div class="alert alert-success" role="alert">Excluido com
+					sucesso!</div>
+			</c:when>
+			<c:otherwise>
+				<div class="alert alert-danger" role="alert">Não é possivel excluir este Tipo de Fundo!</div>
+			</c:otherwise>
+		</c:choose>
+	</c:if>
 	<c:choose>
 		<c:when test="${tipos != null}">
 			<table>

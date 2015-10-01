@@ -38,8 +38,12 @@ public class TipoDeFundoServiceImpl implements TipoDeFundoService {
 
 	@Override
 	public Boolean excluir(TipoDeFundo tipoDeFundo) {
-		dao.excluir(tipoDeFundo);
-		return null;
+		Boolean excluiu = false;
+		if(tipoDeFundo.getListaFundos().isEmpty()){
+			dao.excluir(tipoDeFundo);
+			excluiu = true;
+		}
+		return excluiu;
 	}
 
 	@Override

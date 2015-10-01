@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
@@ -35,8 +36,12 @@ public abstract class GenericDAO {
 	 * @param object
 	 */
 	public void excluir(Object object) {
-		Object entity = em.merge(object);
-		em.remove(entity);
+		try {
+			Object entity = em.merge(object);
+			em.remove(entity);
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**Lista todos os objetos do banco de dados de acordo com a query passada.

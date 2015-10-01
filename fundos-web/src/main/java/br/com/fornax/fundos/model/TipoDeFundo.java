@@ -22,7 +22,7 @@ public class TipoDeFundo {
 	@Column(name = "NOME_TIPO_FUNDO")
 	private String nomeTipoFundo;
 
-	@OneToMany(mappedBy = "tipoFundo", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "tipoFundo", fetch = FetchType.EAGER)
 	private List<Fundo> listaFundos;
 	
 	/**GETTERS AND SETTERS*/
