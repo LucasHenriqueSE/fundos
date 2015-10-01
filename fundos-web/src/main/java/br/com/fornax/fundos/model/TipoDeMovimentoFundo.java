@@ -22,7 +22,7 @@ public class TipoDeMovimentoFundo {
 	@Column(name = "NOME_TIPO_MOVIMENTO_FUNDO")
 	private String nomeTipoMovimentoFundo;
 
-	@OneToMany(mappedBy = "tipoMovimento", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "tipoMovimento", fetch = FetchType.EAGER)
 	private List<MovimentoFundo> listaMovimentos;
 	
 	/**GETTERS AND SETTERS*/

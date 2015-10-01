@@ -8,6 +8,18 @@
 <title>Sistema Fundos</title>
 </head>
 <body>
+	<c:if test="${excluiu != null}">
+		<c:choose>
+			<c:when test="${excluiu == true}">
+				<div class="alert alert-success" role="alert">Excluido com
+					sucesso!</div>
+			</c:when>
+			<c:otherwise>
+				<div class="alert alert-danger" role="alert">Não é possivel
+					excluir este Tipo de Movimento!</div>
+			</c:otherwise>
+		</c:choose>
+	</c:if>
 	<div class="container">
 		<c:choose>
 			<c:when test="${tipos != null}">
@@ -36,6 +48,7 @@
 				<h1>Nenhum Tipo de Movimento Cadastrado</h1>
 			</c:otherwise>
 		</c:choose>
+		<a href="/fundos/tipo-movimento/cadastrar">Novo Tipo de Movimento</a>
 	</div>
 </body>
 </html>

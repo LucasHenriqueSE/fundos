@@ -1,6 +1,7 @@
 package br.com.fornax.fundos.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,10 +21,12 @@ public class TipoMovimentoController {
 	private ModelAndView mav = new ModelAndView();
 
 	@RequestMapping("tipo-movimento")
-	public ModelAndView listarTipoDeMovimentos() {
+	public ModelAndView listarTipoDeMovimentos(HttpServletRequest request) {
 		mav = new ModelAndView();
 		mav.addObject("tipos", tipoDeMovimentoFundoService.listarTodos());
 		mav.setViewName("listar-tipo-de-movimento");
+		mav.addObject("excluiu", request.getSession().getAttribute("excluiu"));
+		request.getSession().invalidate();
 		return mav;
 	}
 
@@ -35,7 +38,7 @@ public class TipoMovimentoController {
 	@RequestMapping(value = "tipo-movimento/salvar", method = RequestMethod.POST)
 	public String salvarTipoMovimentoFundos(TipoDeMovimentoFundo novo) {
 		tipoDeMovimentoFundoService.inserir(novo);
-		return "novo-tipo-movimento-fundos";
+		return "redirect:/tipo-movimento";
 	}
 
 	@RequestMapping("tipo-movimento/{id}/editar")
@@ -55,9 +58,10 @@ public class TipoMovimentoController {
 	}
 
 	@RequestMapping("tipo-movimento/{idTipo}/excluir")
-	public String excluirTipoMovimento(@PathVariable("idTipo") int idTipo) {
+	public String excluirTipoMovimento(@PathVariable("idTipo") int idTipo, HttpServletRequest request) {
 		TipoDeMovimentoFundo tipoDeMovimentoFundo = tipoDeMovimentoFundoService.listarPorId(idTipo);
-		tipoDeMovimentoFundoService.excluir(tipoDeMovimentoFundo);
+		Boolean excluiu = tipoDeMovimentoFundoService.excluir(tipoDeMovimentoFundo);
+		request.getSession().setAttribute("excluiu", excluiu);
 		return "redirect:/tipo-movimento";
 	}
 }

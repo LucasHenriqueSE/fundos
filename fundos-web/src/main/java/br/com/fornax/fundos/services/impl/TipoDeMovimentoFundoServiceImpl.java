@@ -14,15 +14,16 @@ import br.com.fornax.fundos.services.TipoDeMovimentoFundoService;
 
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
-public class TipoDeMovimentoFundoServiceImpl implements TipoDeMovimentoFundoService {
+public class TipoDeMovimentoFundoServiceImpl implements
+		TipoDeMovimentoFundoService {
 
 	@Inject
 	private TipoDeMovimentoFundoDAO dao;
 
 	@Override
-	public Boolean inserir(TipoDeMovimentoFundo tipo) {
+	public Boolean inserir(TipoDeMovimentoFundo tipoDeMovimentoFundo) {
 		try {
-			dao.inserir(tipo);
+			dao.inserir(tipoDeMovimentoFundo);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -31,15 +32,19 @@ public class TipoDeMovimentoFundoServiceImpl implements TipoDeMovimentoFundoServ
 	}
 
 	@Override
-	public Boolean editar(TipoDeMovimentoFundo tipo) {
-		dao.editar(tipo);
+	public Boolean editar(TipoDeMovimentoFundo tipoDeMovimentoFundo) {
+		dao.editar(tipoDeMovimentoFundo);
 		return null;
 	}
-	
+
 	@Override
-	public Boolean excluir(TipoDeMovimentoFundo tipo) {
-		dao.excluir(tipo);
-		return null;
+	public Boolean excluir(TipoDeMovimentoFundo tipoDeMovimentoFundo) {
+		Boolean excluiu = false;
+		if (tipoDeMovimentoFundo.getListaMovimentos().isEmpty()) {
+			dao.excluir(tipoDeMovimentoFundo);
+			return excluiu = true;
+		}
+		return excluiu;
 	}
 
 	@Override
@@ -49,6 +54,7 @@ public class TipoDeMovimentoFundoServiceImpl implements TipoDeMovimentoFundoServ
 
 	@Override
 	public TipoDeMovimentoFundo listarPorId(int id) {
-		return (TipoDeMovimentoFundo) dao.listarPorId(new TipoDeMovimentoFundo(), id);
+		return (TipoDeMovimentoFundo) dao.listarPorId(
+				new TipoDeMovimentoFundo(), id);
 	}
 }
