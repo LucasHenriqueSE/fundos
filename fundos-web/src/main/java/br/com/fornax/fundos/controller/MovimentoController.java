@@ -35,15 +35,15 @@ public class MovimentoController {
 	}
 
 	@RequestMapping(value = "salvar", method = RequestMethod.POST)
-	public String salvarNovoMovimentoFundo(MovimentoFundo novo, String dataCadastro) {
-		movimentoFundoService.inserir(novo, dataCadastro);
-		return "novo-movimento-fundo";
+	public String salvarNovoMovimentoFundo(MovimentoFundo movimentoFundo, String dataCadastro) {
+		movimentoFundoService.inserir(movimentoFundo, dataCadastro);
+		return "redirect:/fundo/" + movimentoFundo.getFundo().getId() + "/movimentos";
 	}
 	
 	@RequestMapping("alterar")
 	public String alterar(MovimentoFundo movimentoFundo, String dataCadastro){
 		movimentoFundoService.editar(movimentoFundo, dataCadastro);
-		return "editar-movimento-fundo";
+		return "redirect:/fundo/" + movimentoFundo.getFundo().getId() + "/movimentos";
 	}
 	
 	@RequestMapping("{movimento.fundo.id}/movimento/{movimento.id}")

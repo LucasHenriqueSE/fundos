@@ -1,6 +1,7 @@
 package br.com.fornax.fundos.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,10 +36,12 @@ public class FundoController {
 	 * @return
 	 */
 	@RequestMapping("/")
-	public ModelAndView index(){
+	public ModelAndView index(HttpServletRequest request){
 		this.mav.clear();
 		this.mav.setViewName("listar-fundo");
 		this.mav.addObject("fundos", fundoService.listarTodos());
+		this.mav.addObject("excluiu", request.getSession().getAttribute("excluiu"));
+		request.getSession().invalidate();
 		return mav;
 	}
 
@@ -120,9 +123,10 @@ public class FundoController {
 	 * @return
 	 */
 	@RequestMapping("fundo/{idFundo}/excluir")
-	public String excluir(@PathVariable("idFundo") int id){
+	public String excluir(@PathVariable("idFundo") int id, HttpServletRequest request){
 		Fundo fundo = fundoService.listarPorId(id);
-		fundoService.excluir(fundo);
+		Boolean excluiu= fundoService.excluir(fundo);
+		request.getSession().setAttribute("excluiu", excluiu);
 		return "redirect:/";
 	}
 }

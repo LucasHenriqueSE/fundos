@@ -50,8 +50,7 @@
 					<option id="tipo" value="${tipo.id}">${tipo.nomeTipoMovimentoFundo}</option>
 				</c:forEach>
 		</select>
-		Valor: <input type="tel" name="valorMovimentoFundo" value=""
-			pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$" />
+		Valor: <input type="tel" name="valorMovimentoFundo" value="" />
 			Quantidade: <input name="qtdMovimentoFundo" value="" />
 			Valor Cota: <input name="valorCotaMovimentoFundo" value="" /><br />
 			Data: <input name="dataCadastro" value="" /><br /> <input type="submit"

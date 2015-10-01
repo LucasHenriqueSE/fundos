@@ -21,7 +21,7 @@
 	<form id="form1" name="form1" action="/fundos/tipo-de-fundo/alterar"
 		method="POST" onkeypress='return event.keyCode!=13'>
 		<input type="hidden" name="id" value="${tipo.id}"/>
-		Tipo de Fundo: <input name="nomeTipoFundo" value="${tipo.nomeTipoFundo}" pattern="[a-z\s]+$" autofocus="autofocus"/><br /> <input
+		Tipo de Fundo: <input name="nomeTipoFundo" value="${tipo.nomeTipoFundo}" autofocus="autofocus"/><br /> <input
 			type="button" value="Alterar" onclick='validar()' />
 	</form>
 </body>

@@ -39,10 +39,10 @@ public class CotaController {
 	}
 
 	@RequestMapping(value = "salvar", method = RequestMethod.POST)
-	public String salvarCota(Cota nova) {
-		cotaService.inserir(nova);
+	public String salvarCota(Cota cota) {
+		cotaService.inserir(cota);
 
-		return "nova-cota";
+		return "redirect:/fundo/" + cota.getFundo().getId() + "/cotas";
 	}
 
 	@RequestMapping("{idCota}/editar")
@@ -60,7 +60,7 @@ public class CotaController {
 	public String alterarCota(Cota cota, String dataCadastro) {
 		cotaService.editar(cota, dataCadastro);
 
-		return "editar-cota";
+		return "redirect:/fundo/" + cota.getFundo().getId() + "/cotas";
 	}
 
 	@RequestMapping("{id}/deletar")

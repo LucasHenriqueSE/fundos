@@ -43,29 +43,27 @@
 	<form id="form1" name="form1" action="/fundos/movimentos/alterar"
 		method="POST" onsubmit='return event.keyCode!=13'>
 		<input type="hidden" name="id" value="${movimentoFundo.id}" /> <input
-			type="hidden" name="fundo.id" value="${movimentoFundo.fundo.id}" /> <input
-			type="hidden" name="tipoMovimento.id"
+			type="hidden" name="fundo.id" value="${movimentoFundo.fundo.id}" />
+		<input type="hidden" name="tipoMovimento.id"
 			value="${movimentoFundo.tipoMovimento.id}" /> Valor: <input
 			type="tel" name="valorMovimentoFundo"
 			value="${movimentoFundo.valorMovimentoFundo}" /> Quantidade: <input
 			name="qtdMovimentoFundo" value="${movimentoFundo.qtdMovimentoFundo}" />
 		Valor Cota: <input name="valorCotaMovimentoFundo"
 			value="${movimentoFundo.valorCotaMovimentoFundo}" /><br /> Data: <input
-			name="dataCadastro"
-			value="<fmt:formatDate type="both" pattern="dd/MM/yyyy HH:mm:ss" dateStyle="short" timeStyle="medium" value="${movimentoFundo.dataMovimentoFundo}" />" />
+			name="dataCadastro" value="${movimentoFundo.dataMovimentoFundo}" />
 		Tipo: <select id="tipo" name="tipoMovimento.id">
 			<c:forEach var="tipo" items="${tipos}">
-			<c:choose>
-				<c:when test="${movimentoFundo.tipoMovimento.id == tipo.id}">
-					<option value="${tipo.id}" selected="selected">${tipo.nomeTipoMovimentoFundo}</option>
-				</c:when>
-				<c:otherwise>
-					<option value="${tipo.id}">${tipo.nomeTipoMovimentoFundo}</option>
-				</c:otherwise>
-			</c:choose>
+				<c:choose>
+					<c:when test="${movimentoFundo.tipoMovimento.id == tipo.id}">
+						<option value="${tipo.id}" selected="selected">${tipo.nomeTipoMovimentoFundo}</option>
+					</c:when>
+					<c:otherwise>
+						<option value="${tipo.id}">${tipo.nomeTipoMovimentoFundo}</option>
+					</c:otherwise>
+				</c:choose>
 			</c:forEach>
-		</select><br>
-		<input type="submit" value="Alterar" onclick='valida()' />
+		</select><br> <input type="submit" value="Alterar" onclick='valida()' />
 	</form>
 </body>
 </html>

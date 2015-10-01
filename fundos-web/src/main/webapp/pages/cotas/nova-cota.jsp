@@ -44,7 +44,7 @@
 	<form id="form1" name="form1" action="salvar" method="POST"
 		onsubmit='return event.keyCode!=13'>
 
-		Valor: <input name="valor" value="" pattern="[a-z\s]+$" autofocus="autofocus" /> Data: <input
+		Valor: <input name="valor" value="" autofocus="autofocus" /> Data: <input
 			name="data" value="" /> Fundo: <select id="fundo" name="fundo.id">
 			<option value="">Selecione...</option>
 			<c:forEach var="fundo" items="${fundos}">

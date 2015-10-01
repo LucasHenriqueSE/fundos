@@ -38,8 +38,12 @@ public class FundoServiceImpl implements FundoService {
 
 	@Override
 	public Boolean excluir(Fundo fundo) {
-		dao.excluir(fundo);
-		return null;
+		Boolean excluiu = false;
+		if(fundo.getListaCotas().isEmpty() && fundo.getListaMovimentos().isEmpty()){
+			dao.excluir(fundo);			
+			return excluiu = true;
+		}
+		return excluiu;
 	}
 
 	@Override

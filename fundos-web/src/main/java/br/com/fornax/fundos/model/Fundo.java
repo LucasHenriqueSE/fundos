@@ -29,10 +29,10 @@ public class Fundo {
 	@JoinColumn(name = "ID_TIPO_FUNDO", nullable = false)
 	private TipoDeFundo tipoFundo;
 
-	@OneToMany(mappedBy = "fundo", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "fundo", fetch = FetchType.EAGER)
 	private List<Cota> listaCotas;
 
-	@OneToMany(mappedBy = "fundo", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "fundo", fetch = FetchType.EAGER)
 	private List<MovimentoFundo> listaMovimentos;
 	
 	/**GETTERS AND SETTERS*/

@@ -27,7 +27,7 @@
 	<form id="form1" name="form1" action="/fundos/alterar" method="POST"
 		onkeypress='return event.keyCode!=13'>
 		<input type="hidden" name="id" value="${fundo.id}"/>
-		Nome: <input name="nome" value="${fundo.nome}" pattern="[a-z\s]+$" autofocus="autofocus" />
+		Nome: <input name="nome" value="${fundo.nome}" autofocus="autofocus" />
 		Tipo de Fundo: <select id="tipoFundo" name="tipoFundo.id">
 			<c:forEach var="tipo" items="${tipos}">
 			<c:choose>

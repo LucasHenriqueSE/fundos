@@ -8,6 +8,18 @@
 <title>Sistema Fundos</title>
 </head>
 <body>
+	<c:if test="${excluiu != null}">
+		<c:choose>
+			<c:when test="${excluiu == true}">
+				<div class="alert alert-success" role="alert">Excluido com
+					sucesso!</div>
+			</c:when>
+			<c:otherwise>
+				<div class="alert alert-danger" role="alert">Não é possivel
+					excluir este Fundo!</div>
+			</c:otherwise>
+		</c:choose>
+	</c:if>
 	<div class="container">
 		<c:choose>
 			<c:when test="${fundos != null}">
@@ -42,9 +54,10 @@
 				<h1>Nenhum Fundo Cadastrado</h1>
 			</c:otherwise>
 		</c:choose>
-		<a href="cadastrar" class="btn btn-primary" role="button">Novo Fundo</a>
-		<a href="tipo-de-fundo" class="btn btn-primary" role="button">Tipos de Fundo</a>
-		<a href="tipo-movimento" class="btn btn-primary" role="button">Tipos de Movimento</a>
+		<a href="cadastrar" class="btn btn-primary" role="button">Novo
+			Fundo</a> <a href="tipo-de-fundo" class="btn btn-primary" role="button">Tipos
+			de Fundo</a> <a href="tipo-movimento" class="btn btn-primary"
+			role="button">Tipos de Movimento</a>
 	</div>
 </body>
 </html>

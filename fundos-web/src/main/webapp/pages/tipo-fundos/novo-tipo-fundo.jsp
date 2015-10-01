@@ -20,7 +20,7 @@
 <body>
 	<form id="form1" name="form1" action="/fundos/tipo-de-fundo/salvar"
 		method="POST" onkeypress='return event.keyCode!=13'>
-		Tipo de Fundo: <input name="nomeTipoFundo" value="" pattern="[a-z\s]+$" autofocus="autofocus"/><br /> <input
+		Tipo de Fundo: <input name="nomeTipoFundo" value="" autofocus="autofocus"/><br /> <input
 			type="button" value="Cadastrar" onclick='validar()' />
 
 	</form>
