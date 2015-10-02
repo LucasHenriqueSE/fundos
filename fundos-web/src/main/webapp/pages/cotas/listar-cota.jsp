@@ -14,27 +14,31 @@
 	}
 </script>
 </head>
-<body>
+<body style="font-family: verdana; font-size: 12px;">
 	<form id="form1" name="form1" action="" method="POST"
 		onsubmit='return event.keyCode!=13'></form>
 	<c:choose>
 		<c:when test="${cotas != null}">
-			<table>
-				<tr>
-					<td>Id</td>
-					<td>Valor</td>
-					<td>Ação 1</td>
-					<td>Ação 2</td>
-				</tr>
-				<c:forEach var="cota" items="${cotas}">
-					<tr>
-						<td>${cota.id}</td>
-						<td>${cota.valor}</td>
-						<td><a href="/fundos/cota/${cota.id}/editar">Editar</a></td>
-						<td><a href="/fundos/cota/${cota.id}/deletar">Excluir</a></td>
+			<div class="table-responsive">
+				<table class="table" style="text-align: center;">
+					<tr style="font-weight: bold;">
+						<td>ID</td>
+						<td>VALOR</td>
+						<td>EDITAR</td>
+						<td>EXCLUIR</td>
 					</tr>
-				</c:forEach>
-			</table>
+					<c:forEach var="cota" items="${cotas}">
+						<tr>
+							<td>${cota.id}</td>
+							<td>${cota.valor}</td>
+							<td><a href="/fundos/cota/${cota.id}/editar"><span
+									class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+							<td><a href="/fundos/cota/${cota.id}/deletar"><span
+									class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
 		</c:when>
 		<c:otherwise>
 			<h1>Nenhuma cota Cadastrada</h1>

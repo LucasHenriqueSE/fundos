@@ -25,45 +25,71 @@
 		} else {
 			document.getElementById("form1").submit();
 		}
-		// 		if (validaData == "") {
-		// 			alert('Preencha o campo com a data de entrada');
-		// 			form1.data.focus();
-		// 			return false;
-		// 		}
-		// 		var validaData = form1.dataCadastro.value;
-		// 		var patternData = /^(\d{2}).(\d{2}).(\d{4}).(\d{2}).(\d{2}).(\d{2})$/;
-		// 		if (validaData == "" || !patternData.test(validaData)) {
-		// 			alert("Digite a data no formato Dia/Mês/Ano");
-		// 			form1.data.focus();
-		// 			return false;
+		if (validaData == "") {
+			alert('Preencha o campo com a data de entrada');
+			form1.data.focus();
+			return false;
+		}
+		var validaData = form1.dataCadastro.value;
+		var patternData = /^(\d{2}).(\d{2}).(\d{4}).(\d{2}).(\d{2}).(\d{2})$/;
+		if (validaData == "" || !patternData.test(validaData)) {
+			alert("Digite a data no formato Dia/Mês/Ano");
+			form1.data.focus();
+			return false;
+		}
 	}
 </script>
 </head>
-<body>
+<body style="font-family: verdana; font-size: 13px">
 	<form id="form1" name="form1" action="/fundos/movimentos/alterar"
 		method="POST" onsubmit='return event.keyCode!=13'>
-		<input type="hidden" name="id" value="${movimentoFundo.id}" /> <input
-			type="hidden" name="fundo.id" value="${movimentoFundo.fundo.id}" />
-		<input type="hidden" name="tipoMovimento.id"
-			value="${movimentoFundo.tipoMovimento.id}" /> Valor: <input
-			type="tel" name="valorMovimentoFundo"
-			value="${movimentoFundo.valorMovimentoFundo}" /> Quantidade: <input
-			name="qtdMovimentoFundo" value="${movimentoFundo.qtdMovimentoFundo}" />
-		Valor Cota: <input name="valorCotaMovimentoFundo"
-			value="${movimentoFundo.valorCotaMovimentoFundo}" /><br /> Data: <input
-			name="dataCadastro" value="${movimentoFundo.dataMovimentoFundo}" />
-		Tipo: <select id="tipo" name="tipoMovimento.id">
-			<c:forEach var="tipo" items="${tipos}">
-				<c:choose>
-					<c:when test="${movimentoFundo.tipoMovimento.id == tipo.id}">
-						<option value="${tipo.id}" selected="selected">${tipo.nomeTipoMovimentoFundo}</option>
-					</c:when>
-					<c:otherwise>
-						<option value="${tipo.id}">${tipo.nomeTipoMovimentoFundo}</option>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-		</select><br> <input type="submit" value="Alterar" onclick='valida()' />
+		<div>
+			<input type="hidden" name="id" value="${movimentoFundo.id}" />
+		</div>
+		<div>
+			<input type="hidden" name="fundo.id"
+				value="${movimentoFundo.fundo.id}" />
+		</div>
+		<div>
+			<input type="hidden" name="tipoMovimento.id"
+				value="${movimentoFundo.tipoMovimento.id}" />
+		</div>
+		<div class="form-group">
+			<label for="valor">Valor:</label><input id="valor" type="tel"
+				class="form-control" style="width: 12%;" name="valorMovimentoFundo"
+				value="${movimentoFundo.valorMovimentoFundo}" />
+		</div>
+		<div class="form-group">
+			<label for="qtd">Quatidade:</label><input id="qtd" class="form-control" style="width: 12%;"
+				name="qtdMovimentoFundo" value="${movimentoFundo.qtdMovimentoFundo}" />
+		</div>
+		<div class="form-group">
+		<label for="vlrCota">Valor Cota:</label><input id="vlrCota" class="form-control" style="width: 12%;"
+				name="valorCotaMovimentoFundo"
+				value="${movimentoFundo.valorCotaMovimentoFundo}" />
+		</div>
+		<div class="form-group">
+			<label for="data">Data:</label><input id="data" class="form-control" style="width: 12%;"
+				name="dataCadastro" value="${movimentoFundo.dataMovimentoFundo}" />
+		</div>
+		<div class="form-group">
+			<label for="tipo">Tipo:</label><select class="form-control" style="width: 12%;" id="tipo"
+				name="tipoMovimento.id">
+				<c:forEach var="tipo" items="${tipos}">
+					<c:choose>
+						<c:when test="${movimentoFundo.tipoMovimento.id == tipo.id}">
+							<option value="${tipo.id}" selected="selected">${tipo.nomeTipoMovimentoFundo}</option>
+						</c:when>
+						<c:otherwise>
+							<option value="${tipo.id}">${tipo.nomeTipoMovimentoFundo}</option>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+			</select>
+		</div>
+		<br> <br> <input class="btn btn-primary" type="submit"
+			value="Alterar" onclick='valida()' /> <input class="btn btn-primary"
+			type="button" value="Cancelar" />
 	</form>
 </body>
 </html>

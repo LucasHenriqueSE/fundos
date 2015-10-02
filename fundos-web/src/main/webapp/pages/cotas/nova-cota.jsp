@@ -43,14 +43,22 @@
 <body>
 	<form id="form1" name="form1" action="salvar" method="POST"
 		onsubmit='return event.keyCode!=13'>
-
-		Valor: <input name="valor" value="" autofocus="autofocus" /> Data: <input
-			name="data" value="" /> Fundo: <select id="fundo" name="fundo.id">
-			<option value="">Selecione...</option>
-			<c:forEach var="fundo" items="${fundos}">
-				<option value="${fundo.id}">${fundo.nome}</option>
-			</c:forEach>
-		</select><br /> <input type="button" value="Cadastrar" onclick='validar()' />
+		<div class="input-group">
+			Valor: <input name="valor" value="" autofocus="autofocus" />
+		</div>
+		<br>
+		<div class="input-group">
+			Data: <input name="data" value="" />
+		</div>
+		<br>
+		<div class="input-group">
+			Fundo: <select id="fundo" name="fundo.id">
+					<c:forEach var="fundo" items="${fundos}">
+						<option value="${fundo.id}">${fundo.id}</option>
+					</c:forEach>
+			</select>
+		</div>
+		<br /> <input type="button" value="Cadastrar" onclick='validar()' />
 	</form>
 </body>
 </html>

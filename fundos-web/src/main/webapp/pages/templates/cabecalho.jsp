@@ -25,8 +25,8 @@
 <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/fundos">Sistema Fundos</a>
+            <div class="navbar-header" style="margin-left: 40%;">
+                <a class="navbar-brand" href="/fundos" style="color: #FFFFFF; font-family: verdana; font-size: 20px;">Sistema Fundos</a>
             </div>
         </div>
         <!-- /.container -->
