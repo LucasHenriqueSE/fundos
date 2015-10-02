@@ -33,7 +33,7 @@
 	}
 </script>
 </head>
-<body>
+<body style="font-family: verdana; font-size: 13px;">
 	<form id="form1" name="form1" action="/fundos/cota/alterar"
 		method="POST" onsubmit='return event.keyCode!=13'>
 		<input type="hidden" name="fundo.id" value="${cota.fundo.id}">
