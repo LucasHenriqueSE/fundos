@@ -24,16 +24,26 @@
 </script>
 </head>
 <body>
-	<form id="form1" name="form1" action="/fundos/salvar" method="POST"
-		onkeypress='return event.keyCode!=13'>
-		Nome: <input name="nome" value="" autofocus="autofocus" />
-		Tipo de Fundo: <select id="tipoFundo" name="tipoFundo.id">
-			<option value="">Selecione...</option>
-			<c:forEach var="tipo" items="${tipos}">
-				<option value="${tipo.id}">${tipo.nomeTipoFundo}</option>
-			</c:forEach>
-		</select><br />
-		<input type="button" value="Cadastrar" onclick='validar()' />
-	</form>
+	<div class="form-group spam12" style="margin-left: 40%;">
+		<form id="form1" name="form1" action="/fundos/salvar" method="POST"
+			onkeypress='return event.keyCode!=13'>
+			<div class="form-group" style="width: 18%;">
+				Nome: <input class="form-control" name="nome" value=""
+					autofocus="autofocus" />
+			</div>
+			<div style="width: 18%;">
+				Tipo de Fundo: <select id="tipoFundo" class="form-control"
+					name="tipoFundo.id">
+					<option value="">Selecione...</option>
+					<c:forEach var="tipo" items="${tipos}">
+						<option value="${tipo.id}">${tipo.nomeTipoFundo}</option>
+					</c:forEach>
+				</select>
+			</div>
+			<br> <input class="btn btn-primary" type="button"
+				value="Cadastrar" onclick='validar()' /> <input
+				class="btn btn-primary" type="button" value="Cancelar">
+		</form>
+	</div>
 </body>
 </html>

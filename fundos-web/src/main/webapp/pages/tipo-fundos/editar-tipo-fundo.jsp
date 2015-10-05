@@ -18,11 +18,18 @@
 </script>
 </head>
 <body>
-	<form id="form1" name="form1" action="/fundos/tipo-de-fundo/alterar"
-		method="POST" onkeypress='return event.keyCode!=13'>
-		<input type="hidden" name="id" value="${tipo.id}"/>
-		Tipo de Fundo: <input name="nomeTipoFundo" value="${tipo.nomeTipoFundo}" autofocus="autofocus"/><br /> <input
-			type="button" value="Alterar" onclick='validar()' />
-	</form>
+	<div class="form-group spam12" style="margin-left: 40%;">
+		<form id="form1" name="form1" action="/fundos/tipo-de-fundo/alterar"
+			method="POST" onkeypress='return event.keyCode!=13'>
+			<input type="hidden" name="id" value="${tipo.id}" />
+			<div class="form-group" style="width: 18%;">
+				Tipo de Fundo: <input class="form-control" name="nomeTipoFundo"
+					value="${tipo.nomeTipoFundo}" autofocus="autofocus" /><br /> <input
+					class="btn btn-primary" type="button" value="Alterar"
+					onclick='validar()' /> <input class="btn btn-primary"
+					type="button" value="Cancelar" />
+			</div>
+		</form>
+	</div>
 </body>
 </html>

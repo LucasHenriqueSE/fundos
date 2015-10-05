@@ -7,7 +7,7 @@
 <meta charset=UTF-8 />
 <title>Sistema Fundos</title>
 </head>
-<body>
+<body style="font-family: verdana; font-size: 12px;">
 	<c:if test="${excluiu != null}">
 		<c:choose>
 			<c:when test="${excluiu == true}">
@@ -23,32 +23,38 @@
 	<div class="container">
 		<c:choose>
 			<c:when test="${tipos != null}">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<td>Id</td>
-							<td>Nome</td>
-							<td>Ação 1</td>
-							<td>Ação 2</td>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="tipo" items="${tipos}">
-							<tr>
-								<td>${tipo.id}</td>
-								<td>${tipo.nomeTipoMovimentoFundo}</td>
-								<td><a href="/fundos/tipo-movimento/${tipo.id}/editar">Editar</a></td>
-								<td><a href="/fundos/tipo-movimento/${tipo.id}/excluir">Excluir</a></td>
+				<div style="text-align: center;">
+					<table class="table table-hover table-bordered">
+						<thead>
+							<tr style="font-weight: bold;">
+								<td>ID</td>
+								<td>NOME</td>
+								<td>EDITAR</td>
+								<td>EXCLUIR</td>
 							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							<c:forEach var="tipo" items="${tipos}">
+								<tr>
+									<td>${tipo.id}</td>
+									<td>${tipo.nomeTipoMovimentoFundo}</td>
+									<td><a href="/fundos/tipo-movimento/${tipo.id}/editar"><span
+											class="glyphicon glyphicon-pencil"></span></a></td>
+									<td><a href="/fundos/tipo-movimento/${tipo.id}/excluir"><span
+											class="glyphicon glyphicon-remove"></span></a></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
 			</c:when>
 			<c:otherwise>
 				<h1>Nenhum Tipo de Movimento Cadastrado</h1>
 			</c:otherwise>
 		</c:choose>
-		<a href="/fundos/tipo-movimento/cadastrar">Novo Tipo de Movimento</a>
+		<a class="btn btn-primary" href="/fundos/tipo-movimento/cadastrar">Novo
+			Tipo de Movimento</a> <input class="btn btn-primary" type="button"
+			value="Voltar" />
 	</div>
 </body>
 </html>

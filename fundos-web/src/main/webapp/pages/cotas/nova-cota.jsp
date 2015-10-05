@@ -41,24 +41,29 @@
 </script>
 </head>
 <body>
-	<form id="form1" name="form1" action="salvar" method="POST"
-		onsubmit='return event.keyCode!=13'>
-		<div class="input-group">
-			Valor: <input name="valor" value="" autofocus="autofocus" />
-		</div>
-		<br>
-		<div class="input-group">
-			Data: <input name="data" value="" />
-		</div>
-		<br>
-		<div class="input-group">
-			Fundo: <select id="fundo" name="fundo.id">
+	<div class="form-group spam12" style="margin-left: 40%;">
+		<form id="form1" name="form1" action="salvar"
+			method="POST" onsubmit='return event.keyCode!=13'>
+			<div class="form-group" style="width: 18%;">
+				<label for="valor">Valor:</label><input id="valor"
+					class="form-control" name="valor" value="" autofocus="autofocus" />
+			</div>
+			<div class="form-group" style="width: 18%;">
+				<label for="data">Data:</label><input id="data" class="form-control"
+					name="data" value="" />
+			</div>
+			<div class="form-group" style="width: 18%;">
+				<label for="fundo">Fundo:</label><select id="fundo"
+					class="form-control" name="fundo.id">
 					<c:forEach var="fundo" items="${fundos}">
 						<option value="${fundo.id}">${fundo.id}</option>
 					</c:forEach>
-			</select>
-		</div>
-		<br /> <input type="button" value="Cadastrar" onclick='validar()' />
-	</form>
+				</select>
+			</div>
+			<input class="btn btn-primary" type="button" value="Cadastrar"
+				onclick='validar()' /> <input class="btn btn-primary" type="button"
+				value="Cancelar" />
+		</form>
+	</div>
 </body>
 </html>

@@ -19,12 +19,19 @@
 </script>
 </head>
 <body>
-	<form id="form1" name="form1"
-		action="/fundos/tipo-movimento/alterar" method="POST"
-		onsubmit='return event.keyCode!=13'>
-		<input type="hidden" name="id" value="${tipo.id}" />
-		Nome: <input name="nomeTipoMovimentoFundo" value="${tipo.nomeTipoMovimentoFundo}" autofocus="autofocus"/> <input
-			type="button" value="Alterar" onclick='validar()' />
-	</form>
+	<div class="form-group spam12" style="margin-left: 40%;">
+		<form id="form1" name="form1" action="/fundos/tipo-movimento/alterar"
+			method="POST" onsubmit='return event.keyCode!=13'>
+			<input name="id" type="hidden" value="${tipo.id}" />
+			<div class="form-group" style="width: 18%;">
+				<label for="nome">Nome: </label><input id="nome"
+					class="form-control" name="nomeTipoMovimentoFundo"
+					value="${tipo.nomeTipoMovimentoFundo}" autofocus="autofocus" />
+			</div>
+			<input class="btn btn-primary" type="button" value="Alterar"
+				onclick='validar()' /> <input class="btn btn-primary" type="button"
+				value="Cancelar" />
+		</form>
+	</div>
 </body>
 </html>

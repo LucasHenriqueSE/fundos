@@ -19,11 +19,17 @@
 </script>
 </head>
 <body>
-	<form id="form1" name="form1"
-		action="/fundos/tipo-movimento/salvar" method="POST"
-		onsubmit='return event.keyCode!=13'>
-		Nome: <input name="nomeTipoMovimentoFundo" value="" autofocus="autofocus"/> <input
-			type="button" value="Cadastrar" onclick='validar()' />
-	</form>
+	<div class="form-group" style="margin-left: 40%;">
+		<form id="form1" name="form1" action="/fundos/tipo-movimento/salvar"
+			method="POST" onsubmit='return event.keyCode!=13'>
+			<div class="form-group" style="width: 18%;">
+				<label for="nome">Nome:</label><input id="nome" class="form-control" name="nomeTipoMovimentoFundo"
+					value="" autofocus="autofocus" />
+			</div>
+			<input class="btn btn-primary" type="button" value="Cadastrar"
+				onclick='validar()' /> <input class="btn btn-primary" type="button"
+				value="Cancelar" />
+		</form>
+	</div>
 </body>
 </html>

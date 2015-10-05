@@ -33,23 +33,24 @@
 	}
 </script>
 </head>
-<body style="font-family: verdana; font-size: 13px;">
-	<form id="form1" name="form1" action="/fundos/cota/alterar"
-		method="POST" onsubmit='return event.keyCode!=13'>
-		<input type="hidden" name="fundo.id" value="${cota.fundo.id}">
-		<input type="hidden" name="id" value="${cota.id}">
-		<div class="form-group">
-			<label for="valor">Valor:</label><input id="valor" name="valor"
-				class="form-control" style="width: 12%;" value="${cota.valor}"
-				autofocus="autofocus" />
-		</div>
-		<div class="form-group">
-			<label for="data">Data:</label><input id="data" class="form-control"
-				style="width: 12%;" name="dataCadastro" value="${cota.data}" />
-		</div>
-		<br> <br> <a href="alterar" class="btn btn-primary btn-sm"
-			role="button" onclick='validar()'>Alterar</a> <a href="#"
-			class="btn btn-primary btn-sm" role="button">Cancelar</a>
-	</form>
+<body>
+	<div class="form-group spam12" style="margin-left: 40%;">
+		<form id="form1" name="form1" action="/fundos/cota/alterar"
+			method="POST" onsubmit='return event.keyCode!=13'>
+			<input type="hidden" name="fundo.id" value="${cota.fundo.id}">
+			<input type="hidden" name="id" value="${cota.id}">
+			<div class="form-group" style="width: 18%;">
+				<label for="valor">Valor:</label><input id="valor" name="valor"
+					class="form-control" value="${cota.valor}" autofocus="autofocus" />
+			</div>
+			<div class="form-group" style="width: 18%;">
+				<label for="data">Data:</label><input id="data" class="form-control"
+					name="dataCadastro" value="${cota.data}" />
+			</div>
+			<br> <a href="alterar" class="btn btn-primary" role="button"
+				onclick='validar()'>Alterar</a> <a href="#" class="btn btn-primary"
+				role="button">Cancelar</a>
+		</form>
+	</div>
 </body>
 </html>

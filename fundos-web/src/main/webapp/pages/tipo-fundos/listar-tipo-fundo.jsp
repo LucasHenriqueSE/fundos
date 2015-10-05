@@ -21,12 +21,12 @@
 	</c:if>
 	<c:choose>
 		<c:when test="${tipos != null}">
-			<table>
-				<tr>
-					<td>Id</td>
-					<td>Nome</td>
-					<td>Ação 1</td>
-					<td>Ação 2</td>
+			<table class="table table-hover table-bordered">
+				<tr style="font-weight: bold;">
+					<td>ID</td>
+					<td>NOME</td>
+					<td>EDITAR</td>
+					<td>EXCLUIR</td>
 				</tr>
 				<c:forEach var="tipo" items="${tipos}">
 					<tr>
@@ -42,6 +42,7 @@
 			<h1>Nenhum tipo Cadastrado</h1>
 		</c:otherwise>
 	</c:choose>
-	<a href="tipo-de-fundo/cadastrar">Novo Tipo de Fundo</a>
+	<a class="btn btn-primary" href="tipo-de-fundo/cadastrar">Novo Tipo de Fundo</a>
+	<input class="btn btn-primary" type="button" value="Voltar" />
 </body>
 </html>

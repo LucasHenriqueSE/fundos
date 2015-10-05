@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
 <meta charset=UTF-8>
 <title>Novo Movimento Fundo</title>
@@ -10,7 +10,7 @@
 	function valida() {
 		var validaData = form1.dataCadastro.value;
 		var validaValor = form1.valorMovimentoFundo.value;
-		if (validaValor.trim() == "" ) {
+		if (validaValor.trim() == "") {
 			alert('Informe o valor do movimento.');
 			return false;
 		}
@@ -41,20 +41,39 @@
 </script>
 </head>
 <body>
-	<form id="form1" name="form1" action="/fundos/movimentos/salvar"
-		method="POST" onsubmit='return event.keyCode!=13'>
-		<input type="hidden" name="fundo.id" value="${idFundo}"/>
-		Tipo: <select id="tipo" name="tipoMovimento.id">
-				<option selected="selected">Selecione...</option>
-				<c:forEach var="tipo" items="${tipos}">
-					<option id="tipo" value="${tipo.id}">${tipo.nomeTipoMovimentoFundo}</option>
-				</c:forEach>
-		</select>
-		Valor: <input type="tel" name="valorMovimentoFundo" value="" />
-			Quantidade: <input name="qtdMovimentoFundo" value="" />
-			Valor Cota: <input name="valorCotaMovimentoFundo" value="" /><br />
-			Data: <input name="dataCadastro" value="" /><br /> <input type="submit"
-			value="Cadastrar" onclick='valida()' />
-	</form>
+	<div class="form-group spam12" style="margin-left: 40%">
+		<form id="form1" name="form1" action="/fundos/movimentos/salvar"
+			method="POST" onsubmit='return event.keyCode!=13'>
+			<input type="hidden" name="fundo.id" value="${idFundo}" />
+			<div class="form-group" style="width: 18%;">
+				<label for="tipo">Tipo:</label><select id="tipo"
+					class="form-control" name="tipoMovimento.id">
+					<option selected="selected">Selecione...</option>
+					<c:forEach var="tipo" items="${tipos}">
+						<option id="tipo" value="${tipo.id}">${tipo.nomeTipoMovimentoFundo}</option>
+					</c:forEach>
+				</select>
+			</div>
+			<div class="form-group" style="width: 18%;">
+				<label for="valor">Valor: </label><input id="valor"
+					class="form-control" type="tel" name="valorMovimentoFundo" value="" />
+			</div>
+			<div class="form-group" style="width: 18%;">
+				<label for="qtd">Quantidade:</label><input id="qtd"
+					class="form-control" name="qtdMovimentoFundo" value="" />
+			</div>
+			<div class="form-group" style="width: 18%;">
+				<label for="valorCota">Valor Cota:</label><input id="valorCota"
+					class="form-control" name="valorCotaMovimentoFundo" value="" />
+			</div>
+			<div class="form-group" style="width: 18%;">
+				<label for="data">Data:</label><input id="data" class="form-control"
+					name="dataCadastro" value="" /><br /> <input
+					class="btn btn-primary" type="submit" value="Cadastrar"
+					onclick='valida()' /> <input class="btn btn-primary" type="button"
+					value="Cancelar" />
+			</div>
+		</form>
+	</div>
 </body>
 </html>

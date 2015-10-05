@@ -18,11 +18,17 @@
 </script>
 </head>
 <body>
-	<form id="form1" name="form1" action="/fundos/tipo-de-fundo/salvar"
-		method="POST" onkeypress='return event.keyCode!=13'>
-		Tipo de Fundo: <input name="nomeTipoFundo" value="" autofocus="autofocus"/><br /> <input
-			type="button" value="Cadastrar" onclick='validar()' />
-
-	</form>
+	<div class="form-group spam12" style="margin-left: 40%;">
+		<form id="form1" name="form1" action="/fundos/tipo-de-fundo/salvar"
+			method="POST" onkeypress='return event.keyCode!=13'>
+			<div style="width: 18%;">
+				<label for="nome">Tipo de Fundo:</label><input id="nome"
+					class="form-control" name="nomeTipoFundo" value=""
+					autofocus="autofocus" /><br />
+					<input class="btn btn-primary" type="button" value="Cadastrar" onclick='validar()' />
+					<input class="btn btn-primary" type="button" value="Voltar" />
+			</div>
+		</form>
+	</div>
 </body>
 </html>

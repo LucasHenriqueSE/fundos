@@ -24,23 +24,32 @@
 </script>
 </head>
 <body>
-	<form id="form1" name="form1" action="/fundos/alterar" method="POST"
-		onkeypress='return event.keyCode!=13'>
-		<input type="hidden" name="id" value="${fundo.id}"/>
-		Nome: <input name="nome" value="${fundo.nome}" autofocus="autofocus" />
-		Tipo de Fundo: <select id="tipoFundo" name="tipoFundo.id">
-			<c:forEach var="tipo" items="${tipos}">
-			<c:choose>
-				<c:when test="${fundo.tipoFundo.id == tipo.id}">
-					<option value="${tipo.id}" selected="selected">${tipo.nomeTipoFundo}</option>
-				</c:when>
-				<c:otherwise>
-					<option value="${tipo.id}">${tipo.nomeTipoFundo}</option>
-				</c:otherwise>
-			</c:choose>
-			</c:forEach>
-		</select><br />
-		<input type="button" value="Alterar" onclick='validar()' />
-	</form>
+	<div class="form-group" style="margin-left: 40%;">
+		<form id="form1" name="form1" action="/fundos/alterar" method="POST"
+			onkeypress='return event.keyCode!=13'>
+			<input type="hidden" name="id" value="${fundo.id}" />
+			<div class="form-group" style="width: 18%;">
+				<label for="nome">Nome:</label><input id="nome" class="form-control"
+					name="nome" value="${fundo.nome}" autofocus="autofocus" />
+			</div>
+			<div class="form-group" style="width: 18%;">
+				<label for="tipoFundo">Tipo de Fundo:</label><select id="tipoFundo"
+					class="form-control" name="tipoFundo.id">
+					<c:forEach var="tipo" items="${tipos}">
+						<c:choose>
+							<c:when test="${fundo.tipoFundo.id == tipo.id}">
+								<option value="${tipo.id}" selected="selected">${tipo.nomeTipoFundo}</option>
+							</c:when>
+							<c:otherwise>
+								<option value="${tipo.id}">${tipo.nomeTipoFundo}</option>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</select>
+			</div>
+			<br /> <input class="btn btn-primary" type="button" value="Alterar" onclick='validar()' />
+					<input class="btn btn-primary" type="button" value="Cancelar" />
+		</form>
+	</div>
 </body>
 </html>
