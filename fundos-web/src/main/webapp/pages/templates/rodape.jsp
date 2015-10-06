@@ -6,7 +6,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2015</p>
+                    <p>Fornax Tecnologia 2015 &copy; - Todos os direitos reservados.</p>
                 </div>
             </div>
         </footer>

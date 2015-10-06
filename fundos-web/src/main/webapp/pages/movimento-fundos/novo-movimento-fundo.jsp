@@ -8,27 +8,37 @@
 <title>Novo Movimento Fundo</title>
 <script id="validacaoCampo" type="text/javascript">
 	function valida() {
+		var validaTipo = form1.tipo.value;
+		if(validaTipo.trim() == ""){
+			alert('Selecione um tipo de fundo.');
+			return false;
+		}
+		
 		var validaData = form1.dataCadastro.value;
 		var validaValor = form1.valorMovimentoFundo.value;
 		if (validaValor.trim() == "") {
 			alert('Informe o valor do movimento.');
 			return false;
 		}
+		
 		var validaQtd = form1.qtdMovimentoFundo.value;
 		if (validaQtd.trim() == "") {
 			alert('Informe a quantidade.');
 			return false;
 		}
+		
 		var validaCota = form1.valorCotaMovimentoFundo.value;
 		if (validaCota.trim() == "") {
 			alert('Informe o valor da cota');
 			return false;
 		}
+		
 		if (validaData == "") {
 			alert('Preencha o campo com a data de entrada');
 			form1.data.focus();
 			return false;
 		}
+		
 		var patternData = /^(\d{2}).(\d{2}).(\d{4}).(\d{2}).(\d{2}).(\d{2})$/;
 		if (!patternData.test(validaData)) {
 			alert("Digite a data no formato Dia/Mês/Ano");
@@ -48,7 +58,7 @@
 			<div class="form-group" style="width: 18%;">
 				<label for="tipo">Tipo:</label><select id="tipo"
 					class="form-control" name="tipoMovimento.id">
-					<option selected="selected">Selecione...</option>
+					<option selected="selected" value="">Selecione...</option>
 					<c:forEach var="tipo" items="${tipos}">
 						<option id="tipo" value="${tipo.id}">${tipo.nomeTipoMovimentoFundo}</option>
 					</c:forEach>
@@ -68,11 +78,10 @@
 			</div>
 			<div class="form-group" style="width: 18%;">
 				<label for="data">Data:</label><input id="data" class="form-control"
-					name="dataCadastro" value="" /><br /> <input
-					class="btn btn-primary" type="submit" value="Cadastrar"
-					onclick='valida()' /> <a class="btn btn-primary"
-					href="/fundos/fundo/${idFundo}/movimentos">Cancelar</a>
+					name="dataCadastro" value="" />
 			</div>
+			<a class="btn btn-primary" onclick='valida()'>Cadastrar</a> <a
+				class="btn btn-primary" href="/fundos/fundo/${idFundo}/movimentos">Cancelar</a>
 		</form>
 	</div>
 </body>

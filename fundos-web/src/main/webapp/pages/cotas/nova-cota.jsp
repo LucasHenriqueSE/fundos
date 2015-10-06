@@ -42,8 +42,8 @@
 </head>
 <body>
 	<div class="form-group spam12" style="margin-left: 40%;">
-		<form id="form1" name="form1" action="/fundos/cota/salvar" method="POST"
-			onsubmit='return event.keyCode!=13'>
+		<form id="form1" name="form1" action="/fundos/cota/salvar"
+			method="POST" onsubmit='return event.keyCode!=13'>
 			<div class="form-group" style="width: 18%;">
 				<label for="valor">Valor:</label><input id="valor"
 					class="form-control" name="valor" value="" autofocus="autofocus" />
@@ -53,16 +53,24 @@
 					name="data" value="" />
 			</div>
 			<div class="form-group" style="width: 18%;">
-				<label for="fundo">Fundo:</label><select id="fundo"
-					class="form-control" name="fundo.id">
-					<c:forEach var="fundo" items="${fundos}">
-						<option value="${fundo.id}">${fundo.id}</option>
-					</c:forEach>
-				</select>
+				<c:choose>
+					<c:when test="fundo.id == null">
+						<label for="fundo">Fundo:</label>
+						<select id="fundo" class="form-control" name="fundo.id">
+							<option value="" selected="selected">Selecione...</option>
+							<c:forEach var="fundo" items="${fundos}">
+								<option value="${fundo.id}">${fundo.id}</option>
+							</c:forEach>
+						</select>
+					</c:when>
+					<c:otherwise>
+						<input id="fundo" class="form-control" type="hidden"
+							name="fundo.id" value="${idFundo}" />
+					</c:otherwise>
+				</c:choose>
 			</div>
-			<input class="btn btn-primary" type="submit" value="Cadastrar"
-				onclick='validar()' /> <a class="btn btn-primary"
-				href="/fundos/fundo/${idFundo}/cotas">Cancelar</a>
+			<a class="btn btn-primary" onclick='validar()'>Cadastrar</a> <a
+				class="btn btn-primary" href="/fundos/fundo/${idFundo}/cotas">Cancelar</a>
 		</form>
 	</div>
 </body>
