@@ -55,7 +55,7 @@
 		<div style="text-align: center;">
 			<a class="btn btn-primary" href="tipo-de-fundo/cadastrar">Novo
 				Tipo de Fundo</a> <a class="btn btn-primary"
-				href="javascript:window.history.go(-1)">Voltar</a>
+				href="/fundos">Voltar</a>
 		</div>
 	</div>
 </body>

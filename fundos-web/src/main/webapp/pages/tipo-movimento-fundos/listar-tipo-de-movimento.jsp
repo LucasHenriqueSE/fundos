@@ -59,7 +59,7 @@
 		<div style="text-align: center;">
 			<a class="btn btn-primary" href="/fundos/tipo-movimento/cadastrar">Novo
 				Tipo de Movimento</a> <a class="btn btn-primary"
-				href="javascript:window.history.go(-1)">Voltar</a>
+				href="/fundos">Voltar</a>
 		</div>
 	</div>
 </body>

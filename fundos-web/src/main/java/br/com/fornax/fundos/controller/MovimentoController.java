@@ -21,13 +21,14 @@ public class MovimentoController {
 
 	@Inject
 	private TipoDeMovimentoFundoService tipoDeMovimentoFundoService;
-	
+
 	private ModelAndView mav;
 
-	@RequestMapping("cadastrar/{idFundo}")
-	public ModelAndView cadastrarNovoMovimentoFundo(@PathVariable("idFundo") int idFundo) {
+	@RequestMapping("{idFundo}/cadastrar")
+	public ModelAndView cadastrarNovoMovimentoFundo(
+			@PathVariable("idFundo") int idFundo) {
 		mav = new ModelAndView();
-		
+
 		mav.setViewName("novo-movimento-fundo");
 		mav.addObject("tipos", tipoDeMovimentoFundoService.listarTodos());
 		mav.addObject("idFundo", idFundo);
@@ -35,33 +36,41 @@ public class MovimentoController {
 	}
 
 	@RequestMapping(value = "salvar", method = RequestMethod.POST)
-	public String salvarNovoMovimentoFundo(MovimentoFundo movimentoFundo, String dataCadastro) {
+	public String salvarNovoMovimentoFundo(MovimentoFundo movimentoFundo,
+			String dataCadastro) {
 		movimentoFundoService.inserir(movimentoFundo, dataCadastro);
-		return "redirect:/fundo/" + movimentoFundo.getFundo().getId() + "/movimentos";
+		return "redirect:/fundo/" + movimentoFundo.getFundo().getId()
+				+ "/movimentos";
 	}
-	
+
 	@RequestMapping("alterar")
-	public String alterar(MovimentoFundo movimentoFundo, String dataCadastro){
+	public String alterar(MovimentoFundo movimentoFundo, String dataCadastro) {
 		movimentoFundoService.editar(movimentoFundo, dataCadastro);
-		return "redirect:/fundo/" + movimentoFundo.getFundo().getId() + "/movimentos";
+		return "redirect:/fundo/" + movimentoFundo.getFundo().getId()
+				+ "/movimentos";
 	}
-	
+
 	@RequestMapping("{movimento.fundo.id}/movimento/{movimento.id}")
-	public ModelAndView editar(@PathVariable("movimento.fundo.id") int idFundo, @PathVariable("movimento.id") int idMovimento){
+	public ModelAndView editar(@PathVariable("movimento.fundo.id") int idFundo,
+			@PathVariable("movimento.id") int idMovimento) {
 		MovimentoFundo movimentoFundo;
 		mav = new ModelAndView();
-		
-		movimentoFundo = movimentoFundoService.buscarMovimentoPorIdFundoEIdMov(idFundo, idMovimento);
-		
+
+		movimentoFundo = movimentoFundoService.buscarMovimentoPorIdFundoEIdMov(
+				idFundo, idMovimento);
+
 		mav.setViewName("editar-movimento-fundo");
 		mav.addObject("tipos", tipoDeMovimentoFundoService.listarTodos());
 		mav.addObject("movimentoFundo", movimentoFundo);
 		return mav;
 	}
-	
+
 	@RequestMapping("{idFundo}/movimento/{idMovimento}/excluir")
-	public String excluirMovimento(@PathVariable("idMovimento") int idMovimento, @PathVariable("idFundo") int idFundo){
-		MovimentoFundo movimento = movimentoFundoService.buscarMovimentoPorIdFundoEIdMov(idFundo, idMovimento);
+	public String excluirMovimento(
+			@PathVariable("idMovimento") int idMovimento,
+			@PathVariable("idFundo") int idFundo) {
+		MovimentoFundo movimento = movimentoFundoService
+				.buscarMovimentoPorIdFundoEIdMov(idFundo, idMovimento);
 		movimentoFundoService.listarPorId(movimento, idMovimento);
 		movimentoFundoService.excluir(movimento);
 		return "redirect:/fundo/{idFundo}/movimentos";

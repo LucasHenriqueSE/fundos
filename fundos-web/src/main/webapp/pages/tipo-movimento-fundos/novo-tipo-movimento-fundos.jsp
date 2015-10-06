@@ -28,7 +28,7 @@
 			</div>
 			<input class="btn btn-primary" type="button" value="Cadastrar"
 				onclick='validar()' /> <a class="btn btn-primary"
-				href="javascript:window.history.go(-1)">Cancelar</a>
+				href="/fundos/tipo-movimento">Cancelar</a>
 		</form>
 	</div>
 </body>

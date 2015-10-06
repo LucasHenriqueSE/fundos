@@ -46,7 +46,7 @@
 		</c:if>
 		<div style="text-align: center;">
 			<a class="btn btn-primary"
-				href="/fundos/movimentos/cadastrar/${idFundo}">Novo Movimento</a> <a
+				href="/fundos/movimentos/${idFundo}/cadastrar">Novo Movimento</a> <a
 				class="btn btn-primary" href="/fundos">Voltar</a>
 		</div>
 	</div>
