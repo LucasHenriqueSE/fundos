@@ -26,8 +26,8 @@
 				Tipo de Fundo: <input class="form-control" name="nomeTipoFundo"
 					value="${tipo.nomeTipoFundo}" autofocus="autofocus" /><br /> <input
 					class="btn btn-primary" type="button" value="Alterar"
-					onclick='validar()' /> <input class="btn btn-primary"
-					type="button" value="Cancelar" />
+					onclick='validar()' /> <a class="btn btn-primary"
+					href="javascript:window.history.go(-1)">Cancelar</a>
 			</div>
 		</form>
 	</div>

@@ -1,7 +1,5 @@
 package br.com.fornax.fundos.controller;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -26,15 +24,13 @@ public class CotaController {
 
 	private ModelAndView mav;
 
-	@RequestMapping("cadastrar")
-	public ModelAndView cadastrarCota() {
-		List<Object> listaFundos;
+	@RequestMapping("cadastrar/{idFundo}")
+	public ModelAndView cadastrarCota(@PathVariable("idFundo") int idFundo) {
 		mav = new ModelAndView();
 
-		listaFundos = fundoService.listarTodos();
 		mav.setViewName("nova-cota");
-		mav.addObject("fundos", listaFundos);
-
+		mav.addObject("fundos", fundoService.listarTodos());
+		mav.addObject("idFundo", idFundo);
 		return mav;
 	}
 

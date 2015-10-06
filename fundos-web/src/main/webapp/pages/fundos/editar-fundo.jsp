@@ -47,8 +47,9 @@
 					</c:forEach>
 				</select>
 			</div>
-			<br /> <input class="btn btn-primary" type="button" value="Alterar" onclick='validar()' />
-					<input class="btn btn-primary" type="button" value="Cancelar" />
+			<br /> <input class="btn btn-primary" type="button" value="Alterar"
+				onclick='validar()' /> <a class="btn btn-primary"
+				href="javascript:window.history.go(-1)">Cancelar</a>
 		</form>
 	</div>
 </body>

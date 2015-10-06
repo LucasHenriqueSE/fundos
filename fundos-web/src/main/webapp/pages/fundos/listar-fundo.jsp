@@ -7,23 +7,28 @@
 <meta charset=UTF-8 />
 <title>Sistema Fundos</title>
 </head>
-<body style="font-family: verdana; font-size: 12px;">
+<body style="font-family: verdana; font-size: 13px;">
 	<c:if test="${excluiu != null}">
 		<c:choose>
 			<c:when test="${excluiu == true}">
-				<div class="alert alert-success" role="alert">Excluido com
-					sucesso!</div>
+				<div class="alert alert-success" role="alert">
+					<button class="close" data-dismiss="alert" aria-hidden="tue">&times;</button>
+					Excluido com sucesso!
+				</div>
 			</c:when>
 			<c:otherwise>
-				<div class="alert alert-danger" role="alert">Não é possivel
-					excluir este Fundo!</div>
+				<div class="alert alert-danger alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert"
+						aria-hidden="true">&times;</button>
+					Não é possivel excluir este Fundo!
+				</div>
 			</c:otherwise>
 		</c:choose>
 	</c:if>
 	<div class="container">
 		<c:choose>
 			<c:when test="${fundos != null}">
-				<table class="table table-hover" style="text-align: center;">
+				<table class="table table-hover table-bordered" style="text-align: center;">
 					<thead>
 						<tr style="font-weight: bold;">
 							<td>ID</td>
@@ -41,10 +46,14 @@
 								<td>${fundo.id}</td>
 								<td>${fundo.nome}</td>
 								<td>${fundo.tipoFundo.nomeTipoFundo}</td>
-								<td><a href="fundo/${fundo.id}/cotas"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span></a></td>
-								<td><a href="fundo/${fundo.id}/movimentos"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a></td>
-								<td><a href="fundo/${fundo.id}/editar"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
-								<td><a href="fundo/${fundo.id}/excluir"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
+								<td><a href="fundo/${fundo.id}/cotas"><span
+										class="glyphicon glyphicon-tags" aria-hidden="true"></span></a></td>
+								<td><a href="fundo/${fundo.id}/movimentos"><span
+										class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a></td>
+								<td><a href="fundo/${fundo.id}/editar"><span
+										class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+								<td><a href="fundo/${fundo.id}/excluir"><span
+										class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -54,9 +63,13 @@
 				<h1>Nenhum Fundo Cadastrado</h1>
 			</c:otherwise>
 		</c:choose>
-		<a href="cadastrar" class="btn btn-primary" role="button">Novo Fundo</a>
-		<a href="tipo-de-fundo" class="btn btn-primary" role="button">Tipos de Fundo</a>
-		<a href="tipo-movimento" class="btn btn-primary" role="button">Tipos de Movimento</a>
+		<br>
+		<div style="text-align: center;">
+			<a href="cadastrar" class="btn btn-primary" role="button">Novo
+				Fundo</a> <a href="tipo-de-fundo" class="btn btn-primary" role="button">Tipos
+				de Fundo</a> <a href="tipo-movimento" class="btn btn-primary"
+				role="button">Tipos de Movimento</a>
+		</div>
 	</div>
 </body>
 </html>

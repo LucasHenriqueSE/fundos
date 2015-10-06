@@ -70,8 +70,8 @@
 				<label for="data">Data:</label><input id="data" class="form-control"
 					name="dataCadastro" value="" /><br /> <input
 					class="btn btn-primary" type="submit" value="Cadastrar"
-					onclick='valida()' /> <input class="btn btn-primary" type="button"
-					value="Cancelar" />
+					onclick='valida()' /> <a class="btn btn-primary"
+					href="/fundos/fundo/${idFundo}/movimentos">Cancelar</a>
 			</div>
 		</form>
 	</div>

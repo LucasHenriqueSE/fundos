@@ -41,7 +41,7 @@
 </script>
 </head>
 <body>
-	<div class="form-group spam18" style="margin-left: 40%;">
+	<div class="form-group spam12" style="margin-left: 40%;">
 		<form id="form1" name="form1" action="/fundos/movimentos/alterar"
 			method="POST" onsubmit='return event.keyCode!=13'>
 			<div>
@@ -54,6 +54,21 @@
 			<div>
 				<input type="hidden" name="tipoMovimento.id"
 					value="${movimentoFundo.tipoMovimento.id}" />
+			</div>
+			<div class="form-group">
+				<label for="tipo">Tipo:</label><select class="form-control"
+					style="width: 18%;" id="tipo" name="tipoMovimento.id">
+					<c:forEach var="tipo" items="${tipos}">
+						<c:choose>
+							<c:when test="${movimentoFundo.tipoMovimento.id == tipo.id}">
+								<option value="${tipo.id}" selected="selected">${tipo.nomeTipoMovimentoFundo}</option>
+							</c:when>
+							<c:otherwise>
+								<option value="${tipo.id}">${tipo.nomeTipoMovimentoFundo}</option>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</select>
 			</div>
 			<div class="form-group">
 				<label for="valor">Valor:</label><input id="valor" type="tel"
@@ -76,24 +91,9 @@
 					style="width: 18%;" name="dataCadastro"
 					value="${movimentoFundo.dataMovimentoFundo}" />
 			</div>
-			<div class="form-group">
-				<label for="tipo">Tipo:</label><select class="form-control"
-					style="width: 18%;" id="tipo" name="tipoMovimento.id">
-					<c:forEach var="tipo" items="${tipos}">
-						<c:choose>
-							<c:when test="${movimentoFundo.tipoMovimento.id == tipo.id}">
-								<option value="${tipo.id}" selected="selected">${tipo.nomeTipoMovimentoFundo}</option>
-							</c:when>
-							<c:otherwise>
-								<option value="${tipo.id}">${tipo.nomeTipoMovimentoFundo}</option>
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
-				</select>
-			</div>
-			<br> <input class="btn btn-primary" type="submit"
-				value="Alterar" onclick='valida()' /> <input
-				class="btn btn-primary" type="button" value="Cancelar" />
+			<input class="btn btn-primary" type="submit" value="Alterar"
+				onclick='valida()' /> <a class="btn btn-primary"
+				href="/fundos/fundo/${movimentoFundo.fundo.id}/movimentos">Cancelar</a>
 		</form>
 	</div>
 </body>

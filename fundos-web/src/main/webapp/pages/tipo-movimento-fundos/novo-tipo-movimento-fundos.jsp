@@ -23,12 +23,12 @@
 		<form id="form1" name="form1" action="/fundos/tipo-movimento/salvar"
 			method="POST" onsubmit='return event.keyCode!=13'>
 			<div class="form-group" style="width: 18%;">
-				<label for="nome">Nome:</label><input id="nome" class="form-control" name="nomeTipoMovimentoFundo"
-					value="" autofocus="autofocus" />
+				<label for="nome">Nome:</label><input id="nome" class="form-control"
+					name="nomeTipoMovimentoFundo" value="" autofocus="autofocus" />
 			</div>
 			<input class="btn btn-primary" type="button" value="Cadastrar"
-				onclick='validar()' /> <input class="btn btn-primary" type="button"
-				value="Cancelar" />
+				onclick='validar()' /> <a class="btn btn-primary"
+				href="javascript:window.history.go(-1)">Cancelar</a>
 		</form>
 	</div>
 </body>
