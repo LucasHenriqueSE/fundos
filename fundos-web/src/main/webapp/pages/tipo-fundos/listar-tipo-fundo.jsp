@@ -54,8 +54,7 @@
 		</c:choose>
 		<div style="text-align: center;">
 			<a class="btn btn-primary" href="tipo-de-fundo/cadastrar">Novo
-				Tipo de Fundo</a> <a class="btn btn-primary"
-				href="/fundos">Voltar</a>
+				Tipo de Fundo</a> <a class="btn btn-primary" href="/fundos">Voltar</a>
 		</div>
 	</div>
 </body>

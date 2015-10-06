@@ -24,11 +24,10 @@
 			<input type="hidden" name="id" value="${tipo.id}" />
 			<div class="form-group" style="width: 18%;">
 				Tipo de Fundo: <input class="form-control" name="nomeTipoFundo"
-					value="${tipo.nomeTipoFundo}" autofocus="autofocus" /><br /> <input
-					class="btn btn-primary" type="button" value="Alterar"
-					onclick='validar()' /> <a class="btn btn-primary"
-					href="/fundos/tipo-de-fundo">Cancelar</a>
+					value="${tipo.nomeTipoFundo}" autofocus="autofocus" />
 			</div>
+			<a class="btn btn-primary" onclick='validar()'>Alterar</a> <a
+				class="btn btn-primary" href="/fundos/tipo-de-fundo">Cancelar</a>
 		</form>
 	</div>
 </body>

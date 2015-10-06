@@ -47,8 +47,8 @@
 				<label for="data">Data:</label><input id="data" class="form-control"
 					name="dataCadastro" value="${cota.data}" />
 			</div>
-			<br> <a href="alterar" class="btn btn-primary"
-				onclick='validar()'>Alterar</a> <a class="btn btn-primary"
+			<a class="btn btn-primary" href="alterar" onclick='validar()'>Alterar</a>
+			<a class="btn btn-primary"
 				href="/fundos/fundo/${cota.fundo.id}/cotas">Cancelar</a>
 		</form>
 	</div>

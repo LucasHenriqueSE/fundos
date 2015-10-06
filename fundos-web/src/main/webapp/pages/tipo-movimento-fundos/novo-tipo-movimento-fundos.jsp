@@ -26,9 +26,8 @@
 				<label for="nome">Nome:</label><input id="nome" class="form-control"
 					name="nomeTipoMovimentoFundo" value="" autofocus="autofocus" />
 			</div>
-			<input class="btn btn-primary" type="button" value="Cadastrar"
-				onclick='validar()' /> <a class="btn btn-primary"
-				href="/fundos/tipo-movimento">Cancelar</a>
+			<a class="btn btn-primary" onclick='validar()'>Cadastrar</a> <a
+				class="btn btn-primary" href="/fundos/tipo-movimento">Cancelar</a>
 		</form>
 	</div>
 </body>

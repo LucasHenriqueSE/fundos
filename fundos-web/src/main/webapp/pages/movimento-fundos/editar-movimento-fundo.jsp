@@ -18,13 +18,13 @@
 			alert('Informe a quantidade.');
 			return false;
 		}
-		
+
 		var validaCota = form1.valorCotaMovimentoFundo.value;
 		if (validaCota.trim() == "") {
 			alert('Informe o valor da cota');
 			return false;
 		}
-		
+
 		if (validaData == "") {
 			alert('Preencha o campo com a data de entrada');
 			form1.data.focus();
@@ -92,9 +92,9 @@
 					style="width: 18%;" name="dataCadastro"
 					value="${movimentoFundo.dataMovimentoFundo}" />
 			</div>
-				<a class="btn btn-primary" onclick='valida()'>Alterar</a>
-				<a class="btn btn-primary"
-					href="/fundos/fundo/${movimentoFundo.fundo.id}/movimentos">Cancelar</a>
+			<a class="btn btn-primary" onclick='valida()'>Alterar</a> <a
+				class="btn btn-primary"
+				href="/fundos/fundo/${movimentoFundo.fundo.id}/movimentos">Cancelar</a>
 		</form>
 	</div>
 </body>

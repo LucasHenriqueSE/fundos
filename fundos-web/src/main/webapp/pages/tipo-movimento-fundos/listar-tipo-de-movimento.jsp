@@ -58,8 +58,7 @@
 		</c:choose>
 		<div style="text-align: center;">
 			<a class="btn btn-primary" href="/fundos/tipo-movimento/cadastrar">Novo
-				Tipo de Movimento</a> <a class="btn btn-primary"
-				href="/fundos">Voltar</a>
+				Tipo de Movimento</a> <a class="btn btn-primary" href="/fundos">Voltar</a>
 		</div>
 	</div>
 </body>

@@ -28,9 +28,8 @@
 					class="form-control" name="nomeTipoMovimentoFundo"
 					value="${tipo.nomeTipoMovimentoFundo}" autofocus="autofocus" />
 			</div>
-			<input class="btn btn-primary" type="button" value="Alterar"
-				onclick='validar()' /> <a class="btn btn-primary"
-				href="/fundos/tipo-movimento">Cancelar</a>
+			<a class="btn btn-primary" onclick='validar()'>Alterar</a> <a
+				class="btn btn-primary" href="/fundos/tipo-movimento">Cancelar</a>
 		</form>
 	</div>
 </body>

@@ -9,19 +9,19 @@
 <script id="validacaoCampo" type="text/javascript">
 	function validar() {
 		var validaValor = form1.valor.value;
-		var validaFundo = form1.fundo.value
-		var validaData = form1.data.value;
 		if (validaValor.trim() == "") {
 			alert('Informe o valor da cota');
 			return false;
 		}
 
+		var validaData = form1.data.value;
 		if (validaData == "") {
 			alert('Preencha o campo com a data de entrada');
 			form1.data.focus();
 			return false;
 		}
 
+		var validaFundo = form1.fundo.value
 		if (validaFundo == "") {
 			alert('Selecione um fundo');
 			return false;

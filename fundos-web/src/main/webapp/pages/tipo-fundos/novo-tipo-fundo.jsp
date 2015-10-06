@@ -24,10 +24,10 @@
 			<div style="width: 18%;">
 				<label for="nome">Tipo de Fundo:</label><input id="nome"
 					class="form-control" name="nomeTipoFundo" value=""
-					autofocus="autofocus" /><br />
-					<input class="btn btn-primary" type="button" value="Cadastrar" onclick='validar()' />
-					<a class="btn btn-primary" href="/fundos/tipo-de-fundo">Cancelar</a>
+					autofocus="autofocus" />
 			</div>
+			<a class="btn btn-primary" onclick='validar()'>Cadastrar</a> <a
+				class="btn btn-primary" href="/fundos/tipo-de-fundo">Cancelar</a>
 		</form>
 	</div>
 </body>

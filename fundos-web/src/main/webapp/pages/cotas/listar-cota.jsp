@@ -46,8 +46,7 @@
 		</c:choose>
 		<div style="text-align: center;">
 			<a class="btn btn-primary" href="/fundos/cota/cadastrar/${idFundo}">Nova
-				Cota</a> <a class="btn btn-primary"
-				href="/fundos">Voltar</a>
+				Cota</a> <a class="btn btn-primary" href="/fundos">Voltar</a>
 		</div>
 	</div>
 </body>
