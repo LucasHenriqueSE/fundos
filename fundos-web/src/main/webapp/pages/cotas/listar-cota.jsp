@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>>
 <head>
 <meta charset=UTF-8 />
 <title>Alterar Cota</title>
@@ -25,6 +26,7 @@
 					<tr style="font-weight: bold;">
 						<td>ID</td>
 						<td>VALOR</td>
+						<td>DATA</td>
 						<td>EDITAR</td>
 						<td>EXCLUIR</td>
 					</tr>
@@ -32,6 +34,8 @@
 						<tr>
 							<td>${cota.id}</td>
 							<td>${cota.valor}</td>
+							<td><fmt:formatDate value="${cota.data}"
+									pattern="dd/MM/yyyy HH:mm:ss" /></td>
 							<td><a href="/fundos/cota/${cota.id}/editar"><span
 									class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
 							<td><a href="/fundos/cota/${cota.id}/deletar"><span

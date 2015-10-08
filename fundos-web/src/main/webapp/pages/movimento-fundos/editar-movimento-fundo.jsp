@@ -25,18 +25,18 @@
 			return false;
 		}
 
-		if (validaData == "") {
-			alert('Preencha o campo com a data de entrada');
-			form1.data.focus();
-			return false;
-		}
-		var validaData = form1.dataCadastro.value;
-		var patternData = /^(\d{2}).(\d{2}).(\d{4}).(\d{2}).(\d{2}).(\d{2})$/;
-		if (validaData == "" || !patternData.test(validaData)) {
-			alert("Digite a data no formato Dia/Mês/Ano");
-			form1.data.focus();
-			return false;
-		}
+		// 		if (validaData == "") {
+		// 			alert('Preencha o campo com a data de entrada');
+		// 			form1.data.focus();
+		// 			return false;
+		// 		}
+		// 		var validaData = form1.dataCadastro.value;
+		// 		var patternData = /^(\d{2}).(\d{2}).(\d{4}).(\d{2}).(\d{2}).(\d{2})$/;
+		// 		if (validaData == "" || !patternData.test(validaData)) {
+		// 			alert("Digite a data no formato Dia/Mês/Ano");
+		// 			form1.data.focus();
+		// 			return false;
+		// 		}
 		document.getElementById("form1").submit();
 	}
 </script>
@@ -86,11 +86,6 @@
 					class="form-control" style="width: 18%;"
 					name="valorCotaMovimentoFundo"
 					value="${movimentoFundo.valorCotaMovimentoFundo}" />
-			</div>
-			<div class="form-group">
-				<label for="data">Data:</label><input id="data" class="form-control"
-					style="width: 18%;" name="dataCadastro"
-					value="${movimentoFundo.dataMovimentoFundo}" />
 			</div>
 			<a class="btn btn-primary" onclick='valida()'>Alterar</a> <a
 				class="btn btn-primary"

@@ -18,6 +18,7 @@
 				style="text-align: center;">
 				<tr style="font-weight: bold;">
 					<td>ID</td>
+					<td>TIPO</td>
 					<td>VALOR</td>
 					<td>QUANTIDADE</td>
 					<td>VALOR COTA</td>
@@ -28,11 +29,11 @@
 				<c:forEach var="movimento" items="${movimentos}">
 					<tr>
 						<td>${movimento.id}</td>
+						<td>${movimento.tipoMovimento.nomeTipoMovimentoFundo}</td>
 						<td>${movimento.valorMovimentoFundo}</td>
 						<td>${movimento.qtdMovimentoFundo}</td>
 						<td>${movimento.valorCotaMovimentoFundo}</td>
-						<td><fmt:formatDate type="both" pattern="dd/MM/yyyy HH:mm:ss"
-								dateStyle="short" timeStyle="medium"
+						<td><fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss"
 								value="${movimento.dataMovimentoFundo}" /></td>
 						<td><a
 							href="/fundos/movimentos/${movimento.fundo.id}/movimento/${movimento.id}"><span

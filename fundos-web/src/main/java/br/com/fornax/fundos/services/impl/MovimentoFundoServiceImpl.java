@@ -1,7 +1,5 @@
 package br.com.fornax.fundos.services.impl;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -21,11 +19,12 @@ public class MovimentoFundoServiceImpl implements MovimentoFundoService {
 
 	@Inject
 	private MovimentoFundoDAO dao;
-	
+
 	@Override
-	public Boolean inserir(MovimentoFundo movimentoFundo, String dataCadastro) {
+	public Boolean inserir(MovimentoFundo movimentoFundo) {
 		try {
-			movimentoFundo.setDataMovimentoFundo(convertData(dataCadastro));
+			Date data = new Date();
+			movimentoFundo.setDataMovimentoFundo(data);
 			dao.inserir(movimentoFundo);
 			return true;
 		} catch (Exception e) {
@@ -33,27 +32,11 @@ public class MovimentoFundoServiceImpl implements MovimentoFundoService {
 			return false;
 		}
 	}
-	
-	private Date convertData(String dataCadastro) {
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		
-		Date date = null;
-		
-		try {
-			date = formatter.parse(dataCadastro);
-
-			System.out.println(date);
-			System.out.println(formatter.format(date));
-
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return date;
-	}
 
 	@Override
-	public Boolean editar(MovimentoFundo movimentoFundo, String dataCadastro) {
-		movimentoFundo.setDataMovimentoFundo(convertData(dataCadastro));
+	public Boolean editar(MovimentoFundo movimentoFundo) {
+		Date data = new Date();
+		movimentoFundo.setDataMovimentoFundo(data);
 		dao.editar(movimentoFundo);
 		return null;
 	}
@@ -67,7 +50,7 @@ public class MovimentoFundoServiceImpl implements MovimentoFundoService {
 	@Override
 	public List<Object> listarTodos() {
 		return dao.listarTodos("select m from MovimentoFundo m");
-		
+
 	}
 
 	@Override

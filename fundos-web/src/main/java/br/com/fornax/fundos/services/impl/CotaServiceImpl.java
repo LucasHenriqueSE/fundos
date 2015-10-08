@@ -1,7 +1,5 @@
 package br.com.fornax.fundos.services.impl;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -24,37 +22,18 @@ public class CotaServiceImpl implements CotaService {
 
 	@Override
 	public Boolean inserir(Cota cota) {
-		try {
-			dao.inserir(cota);
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
-
-	@Override
-	public Boolean editar(Cota cota, String dataCadastro) {
-		cota.setData(convertData(dataCadastro));
-		dao.editar(cota);
+		Date data = new Date();
+		cota.setData(data);
+		dao.inserir(cota);
 		return null;
 	}
 
-	private Date convertData(String dataCadastro) {
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		
-		Date date = null;
-		
-		try {
-			date = formatter.parse(dataCadastro);
-
-			System.out.println(date);
-			System.out.println(formatter.format(date));
-
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return date;
+	@Override
+	public Boolean editar(Cota cota) {
+		Date data = new Date();
+		cota.setData(data);
+		dao.editar(cota);
+		return null;
 	}
 
 	@Override
@@ -81,6 +60,6 @@ public class CotaServiceImpl implements CotaService {
 
 	@Override
 	public Cota buscarCotaPorId(int idCota) {
-		return (Cota) dao.listarPorId(new Cota(),idCota);
+		return (Cota) dao.listarPorId(new Cota(), idCota);
 	}
 }

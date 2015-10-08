@@ -14,24 +14,9 @@
 			return false;
 		}
 
-		var validaData = form1.data.value;
-		if (validaData == "") {
-			alert('Preencha o campo com a data de entrada');
-			form1.data.focus();
-			return false;
-		}
-
 		var validaFundo = form1.fundo.value
 		if (validaFundo == "") {
 			alert('Selecione um fundo');
-			return false;
-		}
-
-		// Verificar se o formato da data digitada está correto       
-		var patternData = /^(\d{2}).(\d{2}).(\d{4}).(\d{2}).(\d{2}).(\d{2})$/;
-		if (!patternData.test(validaData)) {
-			alert("Digite a data no formato Dia/Mês/Ano");
-			form1.data.focus();
 			return false;
 		} else {
 			document.getElementById("form1").submit();
@@ -47,10 +32,6 @@
 			<div class="form-group" style="width: 18%;">
 				<label for="valor">Valor:</label><input id="valor"
 					class="form-control" name="valor" value="" autofocus="autofocus" />
-			</div>
-			<div class="form-group" style="width: 18%;">
-				<label for="data">Data:</label><input id="data" class="form-control"
-					name="data" value="" />
 			</div>
 			<div class="form-group" style="width: 18%;">
 				<c:choose>

@@ -53,8 +53,8 @@ public class CotaController {
 	}
 
 	@RequestMapping("alterar")
-	public String alterarCota(Cota cota, String dataCadastro) {
-		cotaService.editar(cota, dataCadastro);
+	public String alterarCota(Cota cota) {
+		cotaService.editar(cota);
 
 		return "redirect:/fundo/" + cota.getFundo().getId() + "/cotas";
 	}

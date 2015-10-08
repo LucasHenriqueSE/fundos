@@ -28,7 +28,8 @@
 	<div class="container">
 		<c:choose>
 			<c:when test="${fundos != null}">
-				<table class="table table-hover table-bordered" style="text-align: center;">
+				<table class="table table-hover table-bordered"
+					style="text-align: center;">
 					<thead>
 						<tr style="font-weight: bold;">
 							<td>ID</td>
@@ -65,8 +66,8 @@
 		</c:choose>
 		<br>
 		<div style="text-align: center;">
-			<a href="cadastrar" class="btn btn-primary" role="button">Novo
-				Fundo</a> <a href="tipo-de-fundo" class="btn btn-primary" role="button">Tipos
+			<a href="cadastrar" class="btn btn-primary">Cadastrar</a> <a
+				href="tipo-de-fundo" class="btn btn-primary" role="button">Tipos
 				de Fundo</a> <a href="tipo-movimento" class="btn btn-primary"
 				role="button">Tipos de Movimento</a>
 		</div>

@@ -24,7 +24,7 @@
 </script>
 </head>
 <body>
-	<div class="form-group spam12" style="margin-left: 40%;">
+	<div id="myModal" class="form-group spam12" style="margin-left: 40%;">
 		<form id="form1" name="form1" action="/fundos/salvar" method="POST"
 			onkeypress='return event.keyCode!=13'>
 			<div class="form-group" style="width: 18%;">
@@ -40,9 +40,9 @@
 					</c:forEach>
 				</select>
 			</div>
-			<br> <input class="btn btn-primary" type="button"
-				value="Cadastrar" onclick='validar()' /> <a class="btn btn-primary"
-				href="/fundos">Cancelar</a>
+			<br>
+			<a class="btn btn-primary" onclick='validar()'>Cadastrar</a> <a
+				class="btn btn-primary" href="/fundos">Cancelar</a>
 		</form>
 	</div>
 </body>
