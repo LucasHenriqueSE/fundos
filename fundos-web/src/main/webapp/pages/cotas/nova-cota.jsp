@@ -14,14 +14,18 @@
 			return false;
 		}
 
+		if ((validaValor > 43 == validaValor < 59) || validaValor == 40
+				|| validaValor == 41 || validaValor == 8) {
+			alert('Digite somente números');
+			return false;
+		}
+
 		var validaFundo = form1.fundo.value
 		if (validaFundo == "") {
 			alert('Selecione um fundo');
 			return false;
-		} else {
-			document.getElementById("form1").submit();
 		}
-
+		document.getElementById("form1").submit();
 	}
 </script>
 </head>

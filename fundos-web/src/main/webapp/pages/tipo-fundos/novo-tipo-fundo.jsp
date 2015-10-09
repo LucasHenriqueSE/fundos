@@ -26,6 +26,7 @@
 					class="form-control" name="nomeTipoFundo" value=""
 					autofocus="autofocus" />
 			</div>
+			<br>
 			<a class="btn btn-primary" onclick='validar()'>Cadastrar</a> <a
 				class="btn btn-primary" href="/fundos/tipo-de-fundo">Cancelar</a>
 		</form>

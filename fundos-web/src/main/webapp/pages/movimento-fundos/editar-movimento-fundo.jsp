@@ -13,9 +13,22 @@
 			alert('Informe o valor do movimento.');
 			return false;
 		}
+
+		if ((validaValor > 43 == validaValor < 59) || validaValor == 40
+				|| validaValor == 41 || validaValor == 8) {
+			alert('Digite somente números');
+			return false;
+		}
+
 		var validaQtd = form1.qtdMovimentoFundo.value;
 		if (validaQtd.trim() == "") {
 			alert('Informe a quantidade.');
+			return false;
+		}
+
+		if ((validaQtd > 43 == validaQtd < 59) || validaQtd == 40
+				|| validaQtd == 41 || validaQtd == 8) {
+			alert('Digite somente números');
 			return false;
 		}
 
@@ -25,18 +38,11 @@
 			return false;
 		}
 
-		// 		if (validaData == "") {
-		// 			alert('Preencha o campo com a data de entrada');
-		// 			form1.data.focus();
-		// 			return false;
-		// 		}
-		// 		var validaData = form1.dataCadastro.value;
-		// 		var patternData = /^(\d{2}).(\d{2}).(\d{4}).(\d{2}).(\d{2}).(\d{2})$/;
-		// 		if (validaData == "" || !patternData.test(validaData)) {
-		// 			alert("Digite a data no formato Dia/Mês/Ano");
-		// 			form1.data.focus();
-		// 			return false;
-		// 		}
+		if ((validaCota > 43 == validaCota < 59) || validaCota == 40
+				|| validaCota == 41 || validaCota == 8) {
+			alert('Digite somente números');
+			return false;
+		}
 		document.getElementById("form1").submit();
 	}
 </script>
