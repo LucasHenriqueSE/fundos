@@ -16,25 +16,25 @@
 
 		var validaValor = form1.valorMovimentoFundo.value;
 		if (validaValor.trim() == "") {
-			alert('Informe o valor')
+			alert('Informe o valor do movimento.');
 			return false;
 		}
 
 		if ((validaValor > 43 == validaValor < 59) || validaValor == 40
 				|| validaValor == 41 || validaValor == 8) {
-			alert('Digite somente números');
+			alert('Valor: digite somente números');
 			return false;
 		}
 
 		var validaQtd = form1.qtdMovimentoFundo.value;
 		if (validaQtd.trim() == "") {
-			alert('Informe a quantidade');
+			alert('Informe a quantidade.');
 			return false;
 		}
 
 		if ((validaQtd > 43 == validaQtd < 59) || validaQtd == 40
 				|| validaQtd == 41 || validaQtd == 8) {
-			alert('Digite somente números');
+			alert('Quantidade: digite somente números');
 			return false;
 		}
 
@@ -46,7 +46,7 @@
 
 		if ((validaCota > 43 == validaCota < 59) || validaCota == 40
 				|| validaCota == 41 || validaCota == 8) {
-			alert('Digite somente números');
+			alert('Valor Cota: digite somente números');
 			return false;
 		}
 		document.getElementById("form1").submit();
